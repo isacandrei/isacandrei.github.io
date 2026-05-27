@@ -1,751 +1,1675 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ro">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cristina & Andrei's Wedding</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
-     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabana La Cordée — Proiect al Bisericii Ortodoxe Române din Berna</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --gold:       #C8A951;
+      --gold-light: #E8D9A0;
+      --gold-dark:  #9E7E2E;
+      --burgundy:   #7A1F34;
+      --burgundy-dark: #5A1525;
+      --cream:      #FDF8F0;
+      --cream-dark: #F0E6D3;
+      --text:       #2C1E14;
+      --text-light: #6B5D52;
+      --white:      #FFFFFF;
+      --shadow:     0 4px 24px rgba(44,30,20,0.10);
+      --shadow-lg:  0 8px 40px rgba(44,30,20,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--burgundy);
+      text-align: center;
+      margin-bottom: 0.4em;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      background: var(--white);
+      border-bottom: 2px solid var(--gold-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(44,30,20,0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--burgundy);
+    }
+
+    .header-logo {
+      height: 52px;
+      width: auto;
+    }
+
+    .header-brand-text {
+      font-size: 0.85rem;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    .header-brand-text small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--burgundy);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold-dark); }
+
+    .nav-donate {
+      background: var(--burgundy);
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .nav-donate:hover { background: var(--burgundy-dark); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--burgundy-dark);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('photos/2.png');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.35;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(90,21,37,0.45) 0%,
+        rgba(90,21,37,0.80) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 1.5rem;
+      max-width: 750px;
+    }
+
+    .hero-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      color: var(--white);
+      margin-bottom: 0.5em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.8vw, 1.3rem);
+      color: var(--gold-light);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .hero-church {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--burgundy-dark);
+      padding: 0.9rem 2.2rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(200,169,81,0.4);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(200,169,81,0.5);
+    }
+
+    /* ===== INTRO / APPEAL ===== */
+    .appeal {
+      background: var(--white);
+      border-top: 3px solid var(--gold);
+    }
+
+    .appeal-text {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .appeal-text p {
+      margin-bottom: 1.2em;
+    }
+
+    .appeal-greeting {
+      font-size: 1.25rem;
+      color: var(--burgundy);
+      font-weight: 700;
+    }
+
+    .appeal-highlight {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    /* ===== PHOTO SLIDER ===== */
+    .slider-section {
+      background: var(--burgundy-dark);
+      padding: 3.5rem 0;
+    }
+
+    .slider-section .section-title,
+    .slider-section .section-subtitle {
+      color: var(--gold-light);
+    }
+
+    .slider-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.5rem 1.2rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.9);
+      border: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+      color: var(--burgundy);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider-btn:hover { background: var(--white); }
+    .slider-prev { left: 14px; }
+    .slider-next { right: 14px; }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1.2rem;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .slider-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    /* ===== PROPERTY DETAILS ===== */
+    .details {
+      background: var(--white);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .detail-card {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid var(--cream-dark);
+      transition: box-shadow 0.2s;
+    }
+
+    .detail-card:hover { box-shadow: var(--shadow); }
+
+    .detail-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .detail-card h4 {
+      color: var(--burgundy);
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .detail-card p {
+      color: var(--text-light);
+      font-size: 0.92rem;
+    }
+
+    .property-specs {
+      margin-top: 2.5rem;
+      background: var(--cream);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--cream-dark);
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 1.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.95rem;
+    }
+
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row:nth-child(even) { background: var(--white); }
+
+    .spec-label {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .spec-value {
+      color: var(--text);
+      text-align: right;
+    }
+
+    /* ===== LOCATION MAP ===== */
+    .location {
+      background: var(--cream);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .location-map img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .location-info h3 {
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .location-info p {
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .distance-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .distance-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed var(--cream-dark);
+      font-size: 0.9rem;
+    }
+
+    .distance-list li span:last-child {
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+
+    /* ===== CHAPEL ===== */
+    .chapel {
+      background: var(--white);
+      border-top: 3px solid var(--gold);
+    }
+
+    .chapel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .chapel-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .chapel-text h3 {
+      color: var(--burgundy);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .chapel-text p {
+      margin-bottom: 1em;
+      font-size: 1rem;
+    }
+
+    .chapel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+      color: var(--gold-light);
+      padding: 0.7rem 1.3rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== FLOOR PLANS ===== */
+    .floorplans {
+      background: var(--cream);
+    }
+
+    .floorplans-toggle {
+      display: block;
+      margin: 0 auto 2rem;
+      background: none;
+      border: 2px solid var(--burgundy);
+      color: var(--burgundy);
+      padding: 0.7rem 1.8rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .floorplans-toggle:hover {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    .floorplans-content {
+      display: none;
+    }
+
+    .floorplans-content.open { display: block; }
+
+    .floorplan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .floorplan-item {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .floorplan-item img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .floorplan-item img:hover {
+      transform: scale(1.02);
+    }
+
+    .floorplan-label {
+      padding: 0.7rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      text-align: center;
+      background: var(--cream);
+    }
+
+    /* ===== VISION ===== */
+    .vision {
+      background: var(--cream);
+    }
+
+    .vision-list {
+      list-style: none;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .vision-list li {
+      position: relative;
+      padding: 0.8rem 0 0.8rem 2.2rem;
+      font-size: 1.02rem;
+    }
+
+    .vision-list li::before {
+      content: '\2726';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dark);
+      font-size: 1.3rem;
+    }
+
+    /* ===== FINANCIAL / PROGRESS ===== */
+    .financial {
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+      color: var(--white);
+    }
+
+    .financial .section-title { color: var(--gold-light); }
+    .financial .section-subtitle { color: rgba(255,255,255,0.7); }
+
+    .progress-container {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .progress-amounts {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .progress-bar {
+      height: 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+      border-radius: 10px;
+      /* UPDATE: set width to (collected / total * 100)% */
+      width: 17%;
+      transition: width 1.5s ease;
+      position: relative;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+      animation: shimmer 2.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .progress-label {
+      text-align: center;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .price-box {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .price-big {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .price-label {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.3rem;
+    }
+
+    .finance-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .finance-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .finance-card-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .finance-card-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.3rem;
+    }
+
+    /* ===== DONATE ===== */
+    .donate {
+      background: var(--white);
+      border-top: 3px solid var(--gold);
+    }
+
+    .brick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .brick {
+      background: var(--cream);
+      border: 2px solid var(--cream-dark);
+      border-radius: 10px;
+      padding: 1.2rem 0.5rem;
+      text-align: center;
+      cursor: default;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .brick:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .brick-amount {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--burgundy);
+    }
+
+    .brick-label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.2rem;
+    }
+
+    .brick-any {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-light);
+      padding: 1rem;
+    }
+
+    .bank-details {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid var(--cream-dark);
+    }
+
+    .bank-details h3 {
+      color: var(--burgundy);
+      margin-bottom: 1.2rem;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.92rem;
+    }
+
+    .bank-row:last-child { border-bottom: none; }
+
+    .bank-label {
+      color: var(--text-light);
+      font-weight: 600;
+      min-width: 120px;
+    }
+
+    .bank-value {
+      color: var(--text);
+      text-align: right;
+      font-family: 'Courier New', monospace;
+      word-break: break-all;
+    }
+
+    .bank-note {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .bank-note strong {
+      color: var(--burgundy);
+    }
+
+    .qr-placeholder {
+      width: 150px;
+      height: 150px;
+      margin: 1.5rem auto 0;
+      background: var(--white);
+      border: 2px dashed var(--cream-dark);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* ===== GERMAN SECTION ===== */
+    .german {
+      background: var(--cream);
+      border-top: 2px solid var(--cream-dark);
+    }
+
+    .german-toggle {
+      display: block;
+      margin: 0 auto 1.5rem;
+      background: none;
+      border: 2px solid var(--burgundy);
+      color: var(--burgundy);
+      padding: 0.7rem 1.8rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .german-toggle:hover {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    .german-content {
+      max-width: 720px;
+      margin: 0 auto;
+      display: none;
+    }
+
+    .german-content.open { display: block; }
+
+    .german-content p {
+      margin-bottom: 1em;
+      font-size: 0.98rem;
+    }
+
+    .german-content h3 {
+      color: var(--burgundy);
+      margin: 1.5em 0 0.5em;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--burgundy-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo {
+      height: 50px;
+      width: auto;
+      filter: brightness(1.2);
+    }
+
+    footer h4 {
+      color: var(--gold-light);
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+
+    footer p, footer a {
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+
+      .details-grid,
+      .finance-cards { grid-template-columns: 1fr; }
+
+      .brick-grid { grid-template-columns: repeat(2, 1fr); }
+      .brick-any { grid-column: 1 / -1; }
+
+      .footer-grid,
+      .location-grid,
+      .chapel-grid,
+      .floorplan-grid { grid-template-columns: 1fr; }
+
+      .slide img { height: 300px; }
+
+      section { padding: 3rem 0; }
+
+      .chapel-grid .chapel-img { order: -1; }
+    }
+
+    @media (max-width: 480px) {
+      .brick-grid { grid-template-columns: 1fr 1fr; }
+
+      .spec-row {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .spec-value { text-align: left; }
+
+      .finance-card-value { font-size: 1.2rem; }
+    }
+
+    /* ===== FULLSCREEN IMAGE OVERLAY ===== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 92%;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="lds-heart">
-            <div></div>
-        </div>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <a href="https://biserica-ortodoxa-berna.ch/" class="header-brand" target="_blank">
+        <img src="photos/Logo-Sf-Gheorghe-mic.png" alt="Logo Parohia Sf. Gheorghe" class="header-logo">
+        <span class="header-brand-text">
+          Parohia Sf. Mare Mucenic Gheorghe
+          <small>Biserica Ortodoxă Română &mdash; Berna</small>
+        </span>
+      </a>
+      <nav>
+        <a href="#proiect">Proiectul</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#capela">Capela</a>
+        <a href="#financiar">Situația</a>
+        <a href="#doneaza" class="nav-donate">Donează</a>
+      </nav>
     </div>
-    <!-- Main -->
-    <div id="oliven-page"> <a href="#" class="js-oliven-nav-toggle oliven-nav-toggle"><i></i></a>
-        <!-- Sidebar Section -->
-        <aside id="oliven-aside">
-            <!-- Logo -->
-            <div class="oliven-logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="">
-                    <span>Cristina <small>&</small> Andrei</span>
-                    <h6>02.06.2024</h6>
-                </a>
-            </div>
-            <!-- Menu -->
-            <nav class="oliven-main-menu">
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#story">Our Invitation</a></li>
-                    <li><a href="index.html#whenwhere">When & Where</a></li>
-                    <li><a href="index.html#weddingday">Wedding Day</a></li>
-                    <li><a href="index.html#travel">Travel</a></li>
-                    <li><a href="index.html#accommodation">Accommodation</a></li>
-                    <li><a href="index.html#visitromania">Visit Romania</a></li>
-                    <li><a href="index.html#rsvp_title">R.S.V.P</a></li>
-                    <li><a href="index.html#gift">Registry</a></li>
-                </ul>
-            </nav>
-            <!-- Sidebar Footer -->
-            <div class="footer1"> <span class="separator"></span>
-                <p>Cristina & Andrei wedding<br />02 June 2024, Timișoara</p>
-            </div>
-        </aside>
-        <!-- Content Section -->
-        <div id="oliven-main">
-            <!-- Header & Slider -->
-            <header id="home" class="header valign bg-img parallaxie" data-background="images/2.jpeg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center caption">
-                            <h1 class="animate-box" data-animate-effect="fadeInUp">Cristina & Andrei</h1>
-<!--                             <h5 class="animate-box" data-animate-effect="fadeInUp">2 June, 2024 – Timisoara</h5> 
- -->                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="arrow bounce text-center">
-                                <a href="index.html#couple"> <i class="ti-heart"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- Couple -->
-            <div id="couple" class="bridegroom clear section-padding bg-pink">
-                <div class="container">
-                    
-                    <div class="row">
-                        <div class="col-md-12 text-center animate-box" data-animate-effect="fadeInUp">
-                            <h3 class="oliven-couple-title">Are getting married!</h3>
-                            <h4 class="oliven-couple-subtitle">2nd June 2024 — Timisoara, Romania</h4> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Our Story -->
-            <div id="story" class="story section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 mb-30">
-                            <div class="story-img animate-box" data-animate-effect="fadeInLeft">
-                                <div class="img"> <img src="images/story4.jpg" class="img-fluid" alt=""> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 animate-box" data-animate-effect="fadeInRight">
-                            <h4 class="oliven-story-subtitle">Our love.</h4>
-                            <h3 class="oliven-story-title">Our invitation</h3>
-                            <p>Dear family and friends,</p>
-                            <p>We are so grateful that we have found each other, and we're getting married! We thought that our first day as husband and wife would be more beautiful if you, our dear ones, would accept our invitation and be part in our joy.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Countdown -->
-            <div id="countdown" class="section-padding bg-img bg-fixed" data-background="images/ring.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="section-head col-md-12">
-                            <h4>We're getting married in</h4> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul>
-                                <li><span id="days"></span>Days</li>
-                                <li><span id="hours"></span>Hours</li>
-                                <li><span id="minutes"></span>Minutes</li>
-                                <li><span id="seconds"></span>Seconds</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </header>
 
-
-             <!-- Events section -->
-            <div id="whenwhere" class="events section-padding" data-scroll-index="4">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-30"> <span class="oliven-title-meta">Questions</span>
-                            <h2 class="oliven-title">When & Where</h2> </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 animate-box" data-animate-effect="fadeInRight">
-                            <div class="owl-carousel owl-theme">
-                                <div class="events">
-                                    <figure><img src="images/whenwhere/biserica1.jpg" alt="" class="img-fluid"></figure>
-                                    <div class="caption">
-                                        <div class="info">
-                                            <h6>Are you ready?</h6>
-                                        </div>
-                                        <h4>Wedding Ceremony</h4>
-                                        <ul class="list-unstyled cont-list">
-                                            <li>
-                                                <div class="icon"> <span class="ti-location-pin"></span> </div>
-                                                <div class="text">
-                                                    <p>Orthodox Church "Pogorârea Sfântului Duh"
-                                                        <br>Strada Timiș, Timișoara, Romania
-                                                    </p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon"> <span class="ti-time"></span> </div>
-                                                <div class="text">
-                                                    <p>15:00 – 16:00</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                            <div class="owl-carousel owl-theme">
-                                <div class="events left">
-                                    <figure><img src="images/whenwhere/villa.jpg" alt="" class="img left"></figure>
-                                    <div class="caption">
-                                         <div class="info">
-                                                <h6>Are you ready?</h6>
-                                            </div>
-                                            <h4>Wedding Party</h4>
-                                            <ul class="list-unstyled cont-list">
-                                                <li>
-                                                    <div class="icon"> <span class="ti-location-pin"></span> </div>
-                                                    <div class="text">
-                                                        <p>Villa Trevi, 
-                                                            <br>203, Bazoșu Nou, 307351, Romania
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon"> <span class="ti-time"></span> </div>
-                                                    <div class="text">
-                                                        <p>17:30</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                    </div>
-
-                                </div>
-                                <div class="events left">
-                                    <figure><img src="images/whenwhere/villa2.jpg" alt="" class="img left"></figure>
-                                    <div class="caption">
-                                         <div class="info">
-                                                <h6>Are you ready?</h6>
-                                            </div>
-                                            <h4>Wedding Party</h4>
-                                            <ul class="list-unstyled cont-list">
-                                                <li>
-                                                    <div class="icon"> <span class="ti-location-pin"></span> </div>
-                                                    <div class="text">
-                                                        <p>Villa Trevi, 
-                                                            <br>203, Bazoșu Nou, 307351, Romania
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon"> <span class="ti-time"></span> </div>
-                                                    <div class="text">
-                                                        <p>17:30</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                    </div>
-                                </div>
-                                <div class="events left">
-                                    <figure><img src="images/whenwhere/villa3.jpg" alt="" class="img left"></figure>
-                                    <div class="caption">
-                                         <div class="info">
-                                                <h6>Are you ready?</h6>
-                                            </div>
-                                            <h4>Wedding Party</h4>
-                                            <ul class="list-unstyled cont-list">
-                                                <li>
-                                                    <div class="icon"> <span class="ti-location-pin"></span> </div>
-                                                    <div class="text">
-                                                        <p>Villa Trevi, 
-                                                            <br>203, Bazoșu Nou, 307351, Romania
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon"> <span class="ti-time"></span> </div>
-                                                    <div class="text">
-                                                        <p>17:30</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="row" style="padding-top: 50px">
-                        <div class="col-md-12 animate-box" data-animate-effect="fadeInRight">
-                            <div class="owl-carousel owl-theme">
-                                <div class="events map">
-                                        <div style="width: 100%; overflow: hidden; height: 600px;">
-                                            <iframe
-                                                    src="https://www.google.com/maps/d/u/1/embed?mid=1uZucgM2VqaNab0aefSLF_WDkSEJ0DPk&ehbc=2E312F&noprof=1"
-                                                    width="100%"
-                                                    height="600"
-                                                    frameborder="0"
-                                                    style="border:0; margin-top: -60px;">
-                                            </iframe>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-           
-            <!-- See you -->
-            <div id="seeyou" class="seeyou section-padding bg-img bg-fixed" data-background="images/ring4.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="section-head col-md-12 text-center"> 
-                            <span><i class="ti-heart"></i></span>
-                            <h4>Looking forward to see you!</h4>
-                            <h3>2 June 2024</h3> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Wedding Day Start -->
-            <div id="weddingday" class="organization section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-30"> 
-                            <span class="oliven-title-meta">Wedding</span>
-                            <h2 class="oliven-title">Wedding Party</h2> 
-                        </div>
-                    </div>
-                    <div class="container timeline position-relative">
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Ceremony</h4>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/weddingday/cununie.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/weddingday/photo_session.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                <h4>Get a coffee </h4>
-                                <h4>Travel to Villa </h4>
-                                <p>(while we take some photos)</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Reception</h4>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/weddingday/reception.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/weddingday/first_dance.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>First Dance</h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Many courses dining</h4>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/weddingday/dinning.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/weddingday/live_music.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Live bands</h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Drinking</h4>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/weddingday/drinks.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/weddingday/dancing.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Dancing</h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Wedding Cake</h4>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/weddingday/cake.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/weddingday/late.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Party till sunrise</h4>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <!-- Wedding Day End -->
-
-            <!-- Travel -->
-            <div id="travel" class="travel section-padding bg-pink">
-                <div class="container travel">
-                    <div class="row">
-                        <div class="col-md-12 mb-30"> 
-                            <span class="oliven-title-meta">Getting here</span>
-                            <h2 class="oliven-title mb-30">Travel</h2> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="img"> <img src="images/travel/flying.jpg" alt=""> </div>
-                            <div class="info valign">
-                                <div class="full-width">
-                                    <h3>Flying</h3>
-                                    <p>The best way to get to Timişoara from Central, South and Western Europe is flying with a layover in Germany (Munich/Frankfurt). Belgrade and Budapest are other options. We'll explain below each option.
-                                    </p>
-
-                                    <p>Possible Options: </p>
-                                    <ol>
-                                        <li>
-                                            <h4> Timisoara </h4>
-                                            <p> Tested throughout the years, this is by far the most convenient, fastest and nowadays even cheapest way of getting to Timişoara. With a fast security check in Zurich/Geneva, a layover of 1-1.5h just enough for coffee, and 2.5h of flying, you'll be in 4-5h from airport to airport.
-                                            
-                                            <p>Google Flights: </p>
-                                            <ul>
-                                                <li>
-                                                   <a href="https://www.google.com/travel/flights/booking?tfs=CBwQAhpsEgoyMDI0LTA1LTMwIiAKA1pSSBIKMjAyNC0wNS0zMBoDTVVDKgJMSDIEMjM2NyIgCgNNVUMSCjIwMjQtMDUtMzAaA1RTUioCTEgyBDE2NTZqDAgCEggvbS8wODk2NnIMCAMSCC9tLzBnajB4GmwSCjIwMjQtMDYtMDQiIAoDVFNSEgoyMDI0LTA2LTA0GgNNVUMqAkxIMgQxNjU5IiAKA01VQxIKMjAyNC0wNi0wNBoDWlJIKgJMWDIEMTExMWoMCAMSCC9tLzBnajB4cgwIAhIIL20vMDg5NjZAAUgBcAGCAQsI____________AZgBAQ&tfu=CnhDalJJT0d4SmFWZDFNbkJYVVRoQlRXZzRObWRDUnkwdExTMHRMUzB0TFMxM1pXMTBORUZCUVVGQlIxY3hRVWxWU1V4WldtbEJFZzFNU0RFMk5UbDhURmd4TVRFeEdnc0lqS0VCRUFJYUEwTklSamdjY01hNkFRPT0SAggBIgYKATAKATE/" target="_blank"> Zurich - Timisoara </a> 
-                                                </li>
-                                                <li>
-                                                    <p> <a href="https://www.google.com/travel/flights/booking?tfs=CBwQAhpsEgoyMDI0LTA1LTMwIiAKA0dWQRIKMjAyNC0wNS0zMBoDTVVDKgJMSDIEMjM4NSIgCgNNVUMSCjIwMjQtMDUtMzAaA1RTUioCTEgyBDE2NThqDAgDEggvbS8wMzkwMnIMCAMSCC9tLzBnajB4GmwSCjIwMjQtMDYtMDQiIAoDVFNSEgoyMDI0LTA2LTA0GgNNVUMqAkxIMgQxNjYxIiAKA01VQxIKMjAyNC0wNi0wNBoDR1ZBKgJMSDIEMjM4MmoMCAMSCC9tLzBnajB4cgwIAxIIL20vMDM5MDJAAUgBcAGCAQsI____________AZgBAQ&tfu=CnhDalJJVnkxT1VGTlljbTFyTlhkQlF6RlFXRUZDUnkwdExTMHRMUzB0TFhkbWFYWXhPVUZCUVVGQlIxY3hRVTVuU1VoT1FWRkJFZzlNU0RFMk5qRjhURWd5TXpneUl6RWFDZ2k0WnhBQ0dnTkRTRVk0SEhEa2R3PT0SAggBIgYKATAKATE" target="_blank"/> Geneva - Timisoara </a> </p>
-                                                </li>
-                                                <li><p> If you want to visit Romania and do the proposed road trip one option is to fly to Timisoara and fly back directly from Bucharest.
-                                                    <a href="https://www.google.com/travel/flights/search?tfs=CBwQAhooEgoyMDI0LTA1LTMxagwIAxIIL20vMDg5NjZyDAgDEggvbS8wZ2oweEABSAFwAYIBCwj___________8BmAEC&tfu=EgIIASIA" target="_blank">Zurich - Timisoara</a>, 
-                                                    <a href="https://www.google.com/travel/flights/booking?tfs=CBwQAhpKEgoyMDI0LTA2LTA4IiAKA09UUBIKMjAyNC0wNi0wOBoDWlJIKgJMWDIEMTg4NWoMCAMSCC9tLzA5NmdtcgwIAhIIL20vMDg5NjZAAUgBcAGCAQsI____________AZgBAg&tfu=CmxDalJJVDBZNVgzQm5SbWxXTUdkQlJsbEpMVkZDUnkwdExTMHRMUzB0TFMxM1pYSm1PRUZCUVVGQlIxY3pWakZCU0ZoaFIzVkJFZ1pNV0RFNE9EVWFDZ2o4VUJBQ0dnTkRTRVk0SEhEcVhRPT0SAggBIgMKATA" target="_blank">Bucharest - Zurich</a></p></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <h4 class="travel"> Belgrade </h4>
-                                            <p> Belgrade has a direct flight from Zurich. Renting a car from the airport is typically cheap and it takes 2-2.5 hours to reach Timisoara. Note that Serbia is not in EU which means that you might spend more time at the borders control and need to check the conditions for taking a rented car from Belgrade outside of Serbia.</p>
-                                        </li>
-                                        <li>
-                                            <h4 class="travel"> Budapest </h4>
-                                            <p> Budapest has a direct flight from Zurich and Basel, but it takes 4h from the Airport to Timişoara and you need to book a seat in a minivan (which means that the minivan will wait for other passengers to land as well, which may lead to 2-3h wait in the airport in Budapest).</p>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                                
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-12">
-                            <div class="img"> <img src="images/travel/car.png" alt=""> </div>
-                            <div class="info valign">
-                                <div class="full-width">
-                                    <h3>Driving</h3>
-                                    <p> Driving from Zurich to Timişoara is also thoroughly tested (last time was in September :) ). It's a nice trip to do as you can be on the highway from Zurich all the way to Timişoara or you can take a picturesque route through the Austrian Alps. We recommend to stop in Vienna on the way (it's half way).
-                                    </p>
-                                    <ol>
-                                        <li> 
-                                            <h4>Highway all the way</h4>
-                                            <div>
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d287103.39804191794!2d8.495279298240773!3d47.199412909335734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x47900b9749bea219%3A0xe66e8df1e71fdc03!2zWsO8cmljaA!3m2!1d47.3768866!2d8.541694!4m5!1s0x4745677dcb0fb5a7%3A0x537faf6473936749!2sTimi%C8%99oara%2C%20Romania!3m2!1d45.7488716!2d21.2086793!5e0!3m2!1sen!2sch!4v1706361960037!5m2!1sen!2sch" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                        </li>
-                                        <li> 
-                                            <h4>Mountains passes on the way</h4>
-                                            <div>
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d5586192.354000832!2d9.642306611444482!3d46.870594575680116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e0!4m5!1s0x47900b9749bea219%3A0xe66e8df1e71fdc03!2zWsO8cmljaA!3m2!1d47.3768866!2d8.541694!4m5!1s0x479d6ecfe1f8ca73%3A0x9d201c7d281d9b0d!2sInnsbruck%2C%20Austria!3m2!1d47.2692124!2d11.4041024!4m5!1s0x4745677dcb0fb5a7%3A0x537faf6473936749!2sTimi%C8%99oara%2C%20Romania!3m2!1d45.7488716!2d21.2086793!5e0!3m2!1sen!2sch!4v1706362249449!5m2!1sen!2sch" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                                
-                        </div>
-                </div>
-            </div>
-
-            <!-- Accommodation -->
-            <div id="accommodation" class="section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-30"> 
-                            <span class="oliven-title-meta">Staying here</span>
-                            <h2 class="oliven-title mb-30">Accommodation</h2> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                                <div class="accommodation left">
-                                    <figure><img src="images/accommodation/timisoara.jpg" alt="" class="img-fluid"></figure>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <p> We'll try to organise accommodation near the venue for anyone that needs is, so please let us know in the RSVP form if you'd like that.
-                                However, if you plan to stay longer in Timişoara and would like to enjoy the city, we recommend staying in the city center.
-                                There are many nice Airbnbs in "Uniri Square" and Victoria Square.
-                                There are also nice large hotels like Continental or chic boutique hotels all over
-                                the city center. Feel free to ping us before booking to double-check :).
-                                We'll add some recommendations here soon too.
-                             </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Visit Romania -->
-            <div id="visitromania" class="visitromania section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-30"> 
-                            <span class="oliven-title-meta">While here</span>
-                            <h2 class="oliven-title">Visit Romania</h2> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h3 class="title-meta">Timisoara</h3> 
-                    </div>
-                    <div class="container timeline position-relative">
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>City Tour</h4>
-                                    <p>We will organize two sessions of a city tour.</p>
-                                    <ul> 
-                                      <li> Saturday </li>
-                                      <li> Monday </li>
-                                  </ul>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/visitromania/timisoara.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h3 class="title-meta">Full road trip</h3> 
-                        <p>This is a proposal for an itinerary from Monday to Saturday. Of course, we can adjust it and if you're interested in joining please let us know in the RSVP, and we'll add you to a whatsapp group.</p>
-                    </div>
-                    <div class="container timeline position-relative"> 
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Hunedoara</h4>
-                                    <p>
-                                        <ul>
-                                            <li>Wake up late, enjoy some coffee and lunch in Timişoara.</li>
-                                            <li>Optional city guided tour. </li>
-                                            <li>Drive to Hunedoara. </li>
-                                            <li>Visit Corvinilor's Medieval Castle on the way to the national park.</li>
-                                            <li>Dinner and Sleep in Hunedoara in some nice hotel. <li>
-                                    </p>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/visitromania/hunedoara_castle.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/visitromania/retezat.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Retezat National Park</h4>
-                                    <p>
-                                        Close to where Andrei comes from lies the most beautiful mountain range in Romania.
-                                        <ul>
-                                            <li>Option 1) Hike to Retezat Peak and Bucura Lake.</li>
-                                            <li>Option 2) Visit Sarmisegetusa ruins<li>
-                                            <li>Sleep in a mountain hut or mountain airbnb cabin.<li>
-                                        </ul>
-                                    </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Sibiu Medieval Town</h4>
-                                    <p>
-                                        One of the nicest medieval towns in Romania with a lot of Habsburg influence.
-                                        <ul>
-                                            <li>Hike down from Retezat or do a shorter nature walk in the national park.</li>
-                                            <li>Drive to Sibiu.</li>
-                                            <li>Visit the city.<li>
-                                            <li>Sleep in a nice bohemian hotel near Sibiu.<li>
-                                        </ul>
-                                    </p>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/visitromania/sibiu.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/visitromania/transfagarasan.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Central Carpathian Mountains</h4>
-                                    <p> Rich both in natural beauty and history, this part of the country has much to offer.
-                                    <ul>
-                                            <li>Drive on the famous TopGear Transfagarasean mountain pass roads.</li>
-                                            <li>Reach Balea Lake.</li>
-                                            <li>Hike or enjoy activities at the lake. Maybe you get to see a bear :P <li>
-                                            <li>Enjoy some fresh Romanian white cheese and shepherds traditional recipes.</li>
-                                            <li>Sleep in the mountain cabin or in an airbnb cabin.<li>
-                                        </ul>
-                                    </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Brasov and Peles Castle</h4>
-                                    <p> A mix of the medieval town of Brasov and the bourgeois style of royal Peles Castle.
-                                    <ul>
-                                            <li>Drive to Brasov and visit the old town.</li>
-                                            <li>Enjoy lunch in the traditional restaurants Brasov</li>
-                                            <li>There might be some music festivals going on in Brasov.</li>
-                                            <li> Visit Peles Castle ( much nicer than Dracula's castle). </li>
-                                            <li>Sleep in a mountain airbnb.<li>
-                                        </ul>
-                                    </p>
-                            </div>
-                            <div class="col-md-6 text-center text-md-left">
-                                <img class="img-fluid ml-md-3" src="images/visitromania/peles.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                                <img class="img-fluid mr-md-3" src="images/visitromania/bucuresti.jpg" alt="">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                                    <h4>Bucharest</h4>
-                                    <p> Leaving the Carpathian mountain range to reach the vibrant Romanian capital of Bucharest.
-                                    <ul>
-                                            <li>Drive to Bucharest.</li>
-                                            <li>Visit the city and enjoy the busy style of Bucharest after the tranquil medieval towns.</li>
-                                            <li>Visit the Parliament house which is the third-largest administrative building in the world after the Pentagon. </li>
-                                            <li>Enjoy the nightlife in Bucharest.<li>
-                                            <li>Fly directly from Bucharest the next day or drive back to Timişoara. </li>
-                                        </ul>
-                                    </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center text-md-right">
-                            </div>
-                            <div class="col-md-6 text-center caption">
-                            </div>
-                        </div>
-                    </div>
-            </div>
-
-            <div id="visitromania_accommodation" class="visitromania_accommodation section-padding">
-                <div class="container">
-                    <div class="row">
-                        <h3 class="title-meta">Possible accommodations</h3> 
-                        <p>This are some options that we found nice, we can look more and adjust as needed. This will also depend on the number of people joining.</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation1.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation2.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation3.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation4.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation5.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation6.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation7.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation8.jpg" alt=""></div>
-                                </div>
-                                <div class="item">
-                                    <div class="visitromania_accommodation-img"> <img src="images/visitromania/accommodation9.jpg" alt=""></div>
-                                </div>  
-                                                             
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Visit Romania End -->
-
-
-
-            <!-- Confirmation -->
-            <div id="rsvp_title" class="organization section-padding">
-                <div class="container">
-                    <div class="row">
-                                <div class="col-md-12 mb-30"> 
-                                    <span class="oliven-title-meta">Joining?</span>
-                                    <h2 class="oliven-title">RSVP</h2> 
-                                </div>
-                            </div>
-                </div>
-            </div>
-            <div id="rsvp" class="section-padding bg-img bg-fixed" data-background="images/banner-2.jpg">
-                <div class="container">
-                    <div class="row">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScgieWFbWHkQT78CWAmSkQEtahchch-U33PcRVlqfvNBujVIA/viewform?embedded=true"
-                                width="640" height="2513" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gift Start -->
-            <div id="gift" class="story section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 mb-30">
-                            <div class="story-img animate-box" data-animate-effect="fadeInLeft">
-                                <div class="img"> <img src="images/story.jpg" class="img-fluid" alt=""> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 animate-box" data-animate-effect="fadeInRight">
-                            <h4 class="oliven-story-subtitle">Gift</h4>
-                            <h3 class="oliven-story-title">Honeymoon</h3>
-                            <p>Get ready to witness the magic of our love this June :P. Your presence is for us the greatest gift! In case you insist on gifting us something more, you can contribute to our honeymoon adventure.
-                            </p>
-                            <div class="img" > <img style="display: block; margin-left: auto; margin-right: auto; width: 40%;" src="images/travel.png" alt=""> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Gift End-->
-            
-            <!-- Footer -->
-            <div class="footer2">
-                <div class="oliven-narrow-content">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2>
-                                <a href="index.html"><img src="images/logo.png" alt=""><span>Cristina <small>&</small> Andrei</span></a>
-                            </h2>
-                            <p class="copyright">02 June 2024 – Timișoara, Romania</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- jQuery -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/modernizr-2.6.2.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/sticky-kit.min.js"></script>
-        <script src="js/isotope.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="acasa">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="photos/Logo-Sf-Gheorghe-mic.png" alt="Logo" class="hero-logo">
+      <h1>O cabană pentru <em>copiii și tinerii noștri</em></h1>
+      <p class="hero-subtitle">Un loc de tabere, educație și comunitate<br>
+        în inima Alpilor Elvețieni</p>
+      <p class="hero-church">Proiect al Parohiei Sf. Mare Mucenic Gheorghe &mdash; Biserica Ortodoxă Română din Berna</p>
+      <a href="#doneaza" class="hero-cta">Pune și tu o cărămidă</a>
     </div>
+  </section>
+
+  <!-- ===== APPEAL ===== -->
+  <section class="appeal" id="proiect">
+    <div class="container">
+      <h2 class="section-title">Apel către comunitatea românească</h2>
+      <p class="section-subtitle">O șansă pentru un viitor împreună</p>
+
+      <div class="appeal-text">
+        <p class="appeal-greeting">Dragii noștri, Hristos a Înviat!</p>
+
+        <p>
+          Parohia Sf. Mare Mucenic Gheorghe din Berna, parte a Mitropoliei Ortodoxe
+          Române pentru Europa de Vest și de Sud, deservește comunitatea ortodoxă
+          prin slujbe regulate, ore de religie pentru copii și tineri, cursuri de
+          limba română pentru diaspora, cursuri de germană și franceză pentru
+          integrare, precum și programe sociale pentru familii.
+        </p>
+
+        <p>
+          Astăzi avem o oportunitate unică: achiziționarea unei cabane în
+          stațiunea montană Ovronnaz, canton Valais &mdash; <strong>Pension La
+          Cordée</strong>. Această proprietate excepțională poate deveni un loc de
+          tabere pentru copii și tineri, retrageri spirituale, conferințe, cursuri
+          intensive de limbă și alte activități educative și sociale.
+        </p>
+
+        <div class="appeal-highlight">
+          &laquo;&thinsp;Scopul nostru nu este comercial. Dorim să folosim această
+          proprietate pentru un scop caritabil, în beneficiul copiilor, tinerilor,
+          familiilor și tuturor celor interesați &mdash; oferind un cadru care
+          promovează educația, integrarea, viața spirituală și coeziunea
+          comunitară.&thinsp;&raquo;
+        </div>
+
+        <p>
+          Spre deosebire de comunitățile religioase recunoscute oficial, parohia
+          noastră nu primește subvenții de la statul elvețian. Toate activitățile
+          și proiectele sunt finanțate din mijloace proprii și prin generozitatea
+          donatorilor și sponsorilor. Fiecare franc investit trebuie gestionat cu
+          cea mai mare responsabilitate.
+        </p>
+
+        <p>
+          Vă rugăm: nu opriți acest apel la voi. Vorbiți cu familia, prietenii,
+          cunoscuții care pot înțelege această nevoie și care vor să sprijine un
+          loc de educație, tabere și identitate românească în Elveția.
+        </p>
+
+        <p>
+          Cu credință și nădejde, haideți să facem acest pas împreună.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTO SLIDER ===== -->
+  <section class="slider-section" id="galerie">
+    <div class="container">
+      <h2 class="section-title">Pension La Cordée &mdash; Ovronnaz</h2>
+      <p class="section-subtitle">1.250 m altitudine, pe cea mai frumoasă terasă însorită din Valais</p>
+
+      <div class="slider-wrapper">
+        <div class="slider-track" id="sliderTrack">
+          <!-- SLIDE 1: Exterior -->
+          <div class="slide">
+            <img src="photos/1.png" alt="Pension La Cordée — vedere exterioară">
+            <div class="slide-caption">Pension La Cordée &mdash; vedere exterioară cu parcare privată</div>
+          </div>
+          <!-- SLIDE 2: Panorama -->
+          <div class="slide">
+            <img src="photos/2.png" alt="Panoramă montană Ovronnaz">
+            <div class="slide-caption">Priveliștea spectaculoasă din Ovronnaz spre Valea Ronului și Alpi</div>
+          </div>
+          <!-- SLIDE 3: Terrace -->
+          <div class="slide">
+            <img src="photos/4.png" alt="Terasa cu priveliște spre munți">
+            <div class="slide-caption">Terasa de 100 m² orientată spre sud &mdash; cu vedere la munți</div>
+          </div>
+          <!-- SLIDE 4: Interior collage -->
+          <div class="slide">
+            <img src="photos/5.png" alt="Spații interioare — salon, sufragerie, biliard, sală de seminarii">
+            <div class="slide-caption">Spații comune: salon, sufragerie, sală de jocuri cu biliard, sală de seminarii</div>
+          </div>
+          <!-- SLIDE 5: Rooms & kitchen -->
+          <div class="slide">
+            <img src="photos/6.png" alt="Bucătărie profesională și dormitoare">
+            <div class="slide-caption">Bucătărie profesională complet echipată și dormitoare spațioase</div>
+          </div>
+        </div>
+
+        <button class="slider-btn slider-prev" onclick="moveSlider(-1)" aria-label="Anterior">&#10094;</button>
+        <button class="slider-btn slider-next" onclick="moveSlider(1)" aria-label="Următor">&#10095;</button>
+      </div>
+
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+  <!-- ===== PROPERTY DETAILS ===== -->
+  <section class="details" id="detalii">
+    <div class="container">
+      <h2 class="section-title">Despre proprietate</h2>
+      <p class="section-subtitle">Route de Botza 61, 1911 Ovronnaz, Valais</p>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <span class="detail-icon">&#127968;</span>
+          <h4>24 de camere</h4>
+          <p>Majoritatea cu balcon, cu priveliște spre Valea Ronului și crestele înconjurătoare.</p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">&#9728;&#65039;</span>
+          <h4>Terasă de 100 m²</h4>
+          <p>Orientare plein sud &mdash; soare din zori până în amurg, perfectă pentru activități în aer liber.</p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">&#127963;&#65039;</span>
+          <h4>~1.100 m² suprafață</h4>
+          <p>Patru niveluri cu spații generoase: sală de seminarii, carnotzet, zonă de relaxare cu biliard.</p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">&#127956;&#65039;</span>
+          <h4>1.231 m² teren</h4>
+          <p>Cu 19 locuri de parcare private, unele acoperite. Liniște și intimitate garantate.</p>
+        </div>
+      </div>
+
+      <div class="property-specs">
+        <div class="spec-row">
+          <span class="spec-label">Adresă</span>
+          <span class="spec-value">Route de Botza 61, 1911 Ovronnaz</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Comună</span>
+          <span class="spec-value">Leytron, Valais</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Altitudine</span>
+          <span class="spec-value">1.250 m</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Construcție / Renovare</span>
+          <span class="spec-value">1973 / 2010–2020</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Suprafață locuibilă</span>
+          <span class="spec-value">~1.100 m²</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Suprafață teren</span>
+          <span class="spec-value">1.231 m²</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Camere</span>
+          <span class="spec-value">24 (cu balcon)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Niveluri</span>
+          <span class="spec-value">4</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Parcare</span>
+          <span class="spec-value">19 locuri private</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Facilități</span>
+          <span class="spec-value">Bucătărie profesională, sală seminarii, carnotzet, biliard</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="location" id="locatie">
+    <div class="container">
+      <h2 class="section-title">Locație privilegiată</h2>
+      <p class="section-subtitle">Ovronnaz &mdash; stațiune montană familială în Valais</p>
+
+      <div class="location-grid">
+        <div class="location-map">
+          <img src="photos/3.png" alt="Harta locației Ovronnaz" onclick="openLightbox(this.src)">
+        </div>
+        <div class="location-info">
+          <h3>Ovronnaz, un cadru excepțional</h3>
+          <p>
+            Situată pe versantul sudic al Prealpilorvaudeze, deasupra Văii
+            Ronului, Ovronnaz este o stațiune montană familială, autentică și
+            intimistă. Înconjurată de vârfurile Grand Chavalard, Petit și Grand
+            Muveran și Haut de Cry.
+          </p>
+          <p>
+            Stațiunea face parte din Leytron și beneficiază de o situație
+            privilegiată între Martigny și Sion. Băile termale de la Ovronnaz,
+            cu trei bazine de 32–35°C, sunt printre cele mai renumite din regiune.
+          </p>
+
+          <ul class="distance-list">
+            <li><span>Transport public</span> <span>200 m</span></li>
+            <li><span>Magazine</span> <span>590 m</span></li>
+            <li><span>Restaurante</span> <span>205 m</span></li>
+            <li><span>Școală primară</span> <span>3.215 m</span></li>
+            <li><span>Gara</span> <span>4.565 m</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHAPEL ===== -->
+  <section class="chapel" id="capela">
+    <div class="container">
+      <h2 class="section-title">Capela din apropiere</h2>
+      <p class="section-subtitle">Un element esențial pentru desfășurarea taberelor</p>
+
+      <div class="chapel-grid">
+        <div class="chapel-text">
+          <h3>Loc de rugăciune în inima munților</h3>
+          <p>
+            În apropierea pensiunii se află o capelă spațioasă, cu o atmosferă
+            caldă, din lemn natural, care poate găzdui slujbe și rugăciuni pe
+            durata taberelor și retragerilor spirituale.
+          </p>
+          <p>
+            Existența acestui lăcaș de cult în imediata vecinătate este un
+            avantaj decisiv: copiii și tinerii vor avea acces la un spațiu de
+            rugăciune autentic, unde se pot desfășura Sfânta Liturghie, Vecernia,
+            catehezele și momentele de reculegere &mdash; fără a fi nevoiți să se
+            deplaseze.
+          </p>
+          <p>
+            Combinația dintre cabana cu facilități moderne și capela din
+            apropiere creează cadrul ideal pentru tabere ortodoxe complete:
+            activități educative, recreere în natură și viață liturgică
+            &mdash; toate într-un singur loc.
+          </p>
+
+          <div class="chapel-badge">
+            &#9769; Esențial pentru programul spiritual al taberelor
+          </div>
+        </div>
+        <div>
+          <img src="photos/capela.jpeg" alt="Capela din apropierea pensiunii"
+               class="chapel-img" onclick="openLightbox(this.src)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOOR PLANS ===== -->
+  <section class="floorplans">
+    <div class="container">
+      <h2 class="section-title">Planuri de etaj</h2>
+      <p class="section-subtitle">Structura detaliată a clădirii pe cele 4 niveluri</p>
+
+      <button class="floorplans-toggle" onclick="toggleFloorplans()">
+        Arată planurile / Grundrisse anzeigen
+      </button>
+
+      <div class="floorplans-content" id="floorplansContent">
+        <div class="floorplan-grid">
+          <div class="floorplan-item">
+            <img src="photos/8.png" alt="Planul parterului" onclick="openLightbox(this.src)">
+            <div class="floorplan-label">Parter / Erdgeschoss</div>
+          </div>
+          <div class="floorplan-item">
+            <img src="photos/9.png" alt="Planul etajului 1" onclick="openLightbox(this.src)">
+            <div class="floorplan-label">Etajul 1 / 1. Obergeschoss</div>
+          </div>
+          <div class="floorplan-item">
+            <img src="photos/10.png" alt="Planul etajului 2" onclick="openLightbox(this.src)">
+            <div class="floorplan-label">Etajul 2 / 2. Obergeschoss</div>
+          </div>
+          <div class="floorplan-item">
+            <img src="photos/11.png" alt="Planul etajului 3" onclick="openLightbox(this.src)">
+            <div class="floorplan-label">Etajul 3 / 3. Obergeschoss</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION ===== -->
+  <section class="vision">
+    <div class="container">
+      <h2 class="section-title">Ce va deveni acest loc</h2>
+      <p class="section-subtitle">Un centru de educație, tabere și comunitate</p>
+
+      <ul class="vision-list">
+        <li>Tabere de vară și iarnă pentru copii și tineri din toată Elveția</li>
+        <li>Sfânta Liturghie și slujbe la capela din apropiere, în cadru natural</li>
+        <li>Retrageri spirituale și zile de reculegere</li>
+        <li>Cursuri intensive de limba română pentru copiii din diaspora</li>
+        <li>Cursuri de germană și franceză pentru integrare</li>
+        <li>Conferințe, seminarii și activități culturale</li>
+        <li>Programe sociale și de sprijin pentru familii</li>
+        <li>Ore de religie și cateheze într-un cadru natural minunat</li>
+        <li>Un loc de întâlnire pentru comunitatea românească din Elveția</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== FINANCIAL ===== -->
+  <section class="financial" id="financiar">
+    <div class="container">
+      <h2 class="section-title">Situația financiară</h2>
+      <p class="section-subtitle">Transparență totală față de comunitate</p>
+
+      <div class="price-box">
+        <div class="price-big">CHF 1'800'000</div>
+        <div class="price-label">Prețul proprietății</div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-amounts">
+          <!-- UPDATE these values as donations come in -->
+          <span>Strâns: <strong>CHF 300'000</strong></span>
+          <span>Obiectiv: <strong>CHF 1'800'000</strong></span>
+        </div>
+        <div class="progress-bar">
+          <!-- UPDATE width % to match collected/total -->
+          <div class="progress-fill" style="width: 17%"></div>
+        </div>
+        <div class="progress-label">
+          ~17% din obiectiv &mdash; fiecare contribuție contează!
+        </div>
+      </div>
+
+      <div class="finance-cards">
+        <div class="finance-card">
+          <div class="finance-card-value">CHF 1'800'000</div>
+          <div class="finance-card-label">Prețul total</div>
+        </div>
+        <div class="finance-card">
+          <!-- UPDATE collected amount -->
+          <div class="finance-card-value">CHF 300'000</div>
+          <div class="finance-card-label">Sumă strânsă</div>
+        </div>
+        <div class="finance-card">
+          <!-- UPDATE remaining amount -->
+          <div class="finance-card-value">CHF 1'500'000</div>
+          <div class="finance-card-label">Mai avem nevoie</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DONATE ===== -->
+  <section class="donate" id="doneaza">
+    <div class="container">
+      <h2 class="section-title">Cum poți contribui</h2>
+      <p class="section-subtitle">Pune și tu o &laquo;cărămidă&raquo; &mdash; fiecare sumă contează</p>
+
+      <div class="brick-grid">
+        <div class="brick">
+          <div class="brick-amount">100 CHF</div>
+          <div class="brick-label">o cărămidă</div>
+        </div>
+        <div class="brick">
+          <div class="brick-amount">500 CHF</div>
+          <div class="brick-label">un stâlp</div>
+        </div>
+        <div class="brick">
+          <div class="brick-amount">1'000 CHF</div>
+          <div class="brick-label">o fereastră</div>
+        </div>
+        <div class="brick">
+          <div class="brick-amount">5'000 CHF</div>
+          <div class="brick-label">o cameră</div>
+        </div>
+        <div class="brick">
+          <div class="brick-amount">10'000 CHF</div>
+          <div class="brick-label">un etaj</div>
+        </div>
+        <div class="brick">
+          <div class="brick-amount">50'000 CHF</div>
+          <div class="brick-label">un acoperiș</div>
+        </div>
+        <div class="brick brick-any">
+          ...sau orice sumă, din inimă. Nu valoarea în sine contează, ci faptul
+          că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;
+        </div>
+      </div>
+
+      <div class="bank-details">
+        <h3>Date bancare pentru donații</h3>
+
+        <!-- =====================================================
+             TODO: REPLACE THESE PLACEHOLDERS WITH REAL BANK INFO
+             ===================================================== -->
+        <div class="bank-row">
+          <span class="bank-label">Titular</span>
+          <span class="bank-value">Parohia Sf. Gheorghe Berna</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">IBAN (CHF)</span>
+          <span class="bank-value">CH__ ____ ____ ____ ____ _</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">IBAN (EUR)</span>
+          <span class="bank-value">CH__ ____ ____ ____ ____ _</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Banca</span>
+          <span class="bank-value">__________________</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">BIC/SWIFT</span>
+          <span class="bank-value">__________</span>
+        </div>
+        <!-- ===================================================== -->
+
+        <div class="bank-note">
+          <strong>Mențiune:</strong> &laquo;Cabana La Cordée &mdash; Proiect Ovronnaz&raquo;
+        </div>
+
+        <!-- TODO: Replace with actual QR payment code image -->
+        <div class="qr-placeholder">QR Code<br><small>Înlocuiește cu<br>codul QR real</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GERMAN VERSION (collapsible) ===== -->
+  <section class="german" id="deutsch">
+    <div class="container">
+      <h2 class="section-title">Auf Deutsch</h2>
+      <p class="section-subtitle">Informationen auf Deutsch</p>
+
+      <button class="german-toggle" onclick="toggleGerman()">
+        Deutsche Version anzeigen / arată
+      </button>
+
+      <div class="german-content" id="germanContent">
+        <h3>Ein Ferienhaus für unsere Kinder und Jugendlichen</h3>
+
+        <p>
+          Die Rumänisch-Orthodoxe Kirchgemeinde Bern (Pfarrei Hl. Grossmärtyrer
+          Georg) ist Teil der Rumänisch-Orthodoxen Metropolie für West- und
+          Südeuropa. Wir betreuen die orthodoxe Gemeinschaft in der Schweiz durch
+          regelmässige Gottesdienste, Religionsunterricht für Kinder und
+          Jugendliche, Rumänisch-Kurse für die Diaspora, Deutsch- und
+          Französischkurse zur Integration sowie soziale Programme für Familien.
+        </p>
+
+        <h3>Die Liegenschaft: Pension La Cordée, Ovronnaz</h3>
+
+        <p>
+          Die Pension La Cordée befindet sich auf 1'250 m Höhe in der
+          Bergstation Ovronnaz (Wallis), auf der Sonnenterrasse über dem
+          Rhonetal. Das 1973 erbaute und zwischen 2010 und 2020 teilweise
+          renovierte Gebäude bietet rund 1'100 m² Nutzfläche auf vier Etagen,
+          24 Zimmer (die meisten mit Balkon), grosszügige Gemeinschaftsräume,
+          eine professionelle Küche, eine 100 m² grosse Südterrasse und 19
+          private Parkplätze.
+        </p>
+
+        <h3>Die Kapelle &mdash; ein entscheidender Vorteil</h3>
+
+        <p>
+          In unmittelbarer Nähe der Pension befindet sich eine geräumige Kapelle
+          aus Naturholz, die für Gottesdienste und Gebete während der Lager und
+          geistlichen Einkehrtage genutzt werden kann. Die Heilige Liturgie, die
+          Vesper und der Religionsunterricht können dort abgehalten werden &mdash;
+          eine einzigartige Möglichkeit für orthodoxe Jugendlager.
+        </p>
+
+        <h3>Unsere Vision</h3>
+
+        <p>
+          Diese Liegenschaft soll ein Ort für Kinder- und Jugendlager,
+          spirituelle Einkehrtage, Konferenzen, Intensivsprachkurse und andere
+          Bildungs- und Sozialaktivitäten werden. Unser Ziel ist nicht
+          kommerzieller Natur &mdash; wir möchten sie gemeinnützig nutzen, zum
+          Wohl der Gemeinschaft.
+        </p>
+
+        <h3>Finanzielle Situation</h3>
+
+        <p>
+          Im Gegensatz zu den offiziell anerkannten Religionsgemeinschaften
+          erhält unsere Kirchgemeinde keine Subventionen vom Schweizer Staat.
+          Alle Projekte werden aus eigenen Mitteln und durch Spenden finanziert.
+        </p>
+
+        <p>
+          <strong>Kaufpreis:</strong> CHF 1'800'000<br>
+          <!-- UPDATE these amounts -->
+          <strong>Bisher gesammelt:</strong> CHF 300'000<br>
+          <strong>Noch benötigt:</strong> CHF 1'500'000
+        </p>
+
+        <h3>So können Sie helfen</h3>
+
+        <p>
+          Jeder Beitrag zählt: 100 CHF, 500 CHF, 1'000 CHF, 5'000 CHF,
+          10'000 CHF oder jeder Betrag, der Ihnen möglich ist. Bitte verwenden
+          Sie die oben angegebenen Bankdaten mit dem Vermerk
+          &laquo;Cabana La Cordée &mdash; Projekt Ovronnaz&raquo;.
+        </p>
+
+        <p>
+          Wir bitten Sie herzlich: Teilen Sie diesen Aufruf mit Ihrer Familie,
+          Freunden und Bekannten, die dieses Projekt unterstützen möchten.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="photos/Logo-Sf-Gheorghe-mic.png" alt="Logo" class="footer-logo">
+          <div>
+            <h4 style="margin-bottom: 0;">Parohia Sf. Mare Mucenic Gheorghe</h4>
+          </div>
+        </div>
+        <p>
+          Biserica Ortodoxă Română &mdash; Berna<br>
+          Mitropolia Ortodoxă Română pentru<br>
+          Europa de Vest și de Sud
+        </p>
+        <p style="margin-top: 0.8rem;">
+          <a href="https://biserica-ortodoxa-berna.ch/" target="_blank">
+            biserica-ortodoxa-berna.ch
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>
+          Pfr. Gheorghe Laurențiu Precup<br>
+          Președintele Parohiei<br><br>
+          Tel: <a href="tel:+41786317648">078 631 76 48</a><br>
+          Email: <a href="mailto:laurentiuprecup@yahoo.de">laurentiuprecup@yahoo.de</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Parohia Sf. Mare Mucenic Gheorghe &mdash; Biserica Ortodoxă Română, Berna.
+      Proiect caritabil &mdash; toate donațiile sunt folosite exclusiv pentru
+      achiziționarea și amenajarea cabanei.
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Închide">&times;</button>
+    <img id="lightboxImg" src="" alt="Imagine mărită">
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // --- Photo Slider ---
+    let currentSlide = 0;
+    const track = document.getElementById('sliderTrack');
+    const slides = track.children;
+    const totalSlides = slides.length;
+    const dotsContainer = document.getElementById('sliderDots');
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function goToSlide(n) {
+      currentSlide = ((n % totalSlides) + totalSlides) % totalSlides;
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+      document.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function moveSlider(dir) {
+      goToSlide(currentSlide + dir);
+    }
+
+    // Auto-advance every 5s
+    let autoSlide = setInterval(() => moveSlider(1), 5000);
+    const wrapper = document.querySelector('.slider-wrapper');
+    wrapper.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    wrapper.addEventListener('mouseleave', () => {
+      autoSlide = setInterval(() => moveSlider(1), 5000);
+    });
+
+    // Touch support for slider
+    let touchStartX = 0;
+    wrapper.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      clearInterval(autoSlide);
+    }, { passive: true });
+    wrapper.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) moveSlider(diff > 0 ? 1 : -1);
+      autoSlide = setInterval(() => moveSlider(1), 5000);
+    }, { passive: true });
+
+    // --- German toggle ---
+    function toggleGerman() {
+      const el = document.getElementById('germanContent');
+      el.classList.toggle('open');
+      const btn = document.querySelector('.german-toggle');
+      btn.textContent = el.classList.contains('open')
+        ? 'Deutsche Version ausblenden / ascunde'
+        : 'Deutsche Version anzeigen / arată';
+    }
+
+    // --- Floor plans toggle ---
+    function toggleFloorplans() {
+      const el = document.getElementById('floorplansContent');
+      el.classList.toggle('open');
+      const btn = document.querySelector('.floorplans-toggle');
+      btn.textContent = el.classList.contains('open')
+        ? 'Ascunde planurile / Grundrisse ausblenden'
+        : 'Arată planurile / Grundrisse anzeigen';
+    }
+
+    // --- Lightbox ---
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // --- Smooth scroll for nav ---
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
