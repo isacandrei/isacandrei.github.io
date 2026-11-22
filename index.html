@@ -706,19 +706,74 @@
       border-top: 3px solid var(--gold);
     }
 
+    .donate-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      flex-wrap: wrap;
+    }
+
+    .donate-tab {
+      flex: 1 1 240px;
+      background: var(--cream);
+      color: var(--burgundy);
+      border: 2px solid var(--cream-dark);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .donate-tab small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 0.15rem;
+    }
+
+    .donate-tab:hover {
+      border-color: var(--gold);
+    }
+
+    .donate-tab.active {
+      background: var(--burgundy);
+      color: var(--white);
+      border-color: var(--burgundy);
+      box-shadow: var(--shadow);
+    }
+
+    .donate-tab.active small {
+      color: var(--gold-light);
+    }
+
+    .donate-panel {
+      display: none;
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .donate-panel.active {
+      display: block;
+    }
+
     .brick-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
+      gap: 0.9rem;
     }
 
     .brick {
       background: var(--cream);
       border: 2px solid var(--cream-dark);
       border-radius: 10px;
-      padding: 1.2rem 0.5rem;
+      padding: 1.15rem 0.6rem;
       text-align: center;
       cursor: default;
       transition: border-color 0.2s, transform 0.2s;
@@ -730,24 +785,98 @@
     }
 
     .brick-amount {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--burgundy);
     }
 
     .brick-label {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       color: var(--text-light);
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
     }
 
     .brick-any {
       grid-column: 1 / -1;
       background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
-      font-style: italic;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      color: var(--text);
+      padding: 1.15rem 1.4rem;
+      line-height: 1.55;
+    }
+
+    .brick-any em {
+      display: block;
+      margin-top: 0.35rem;
       color: var(--text-light);
-      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .parish-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .parish-tier {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--cream);
+      border: 2px solid var(--cream-dark);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .parish-tier:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .parish-tier.tier-top {
+      background: linear-gradient(135deg, #FDF8F0 0%, #F4E8CC 100%);
+      border-color: var(--gold);
+    }
+
+    .parish-tier-info {
+      text-align: left;
+    }
+
+    .parish-tier-rank {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--burgundy);
+    }
+
+    .parish-tier-desc {
+      font-size: 0.84rem;
+      color: var(--text-light);
+      margin-top: 0.15rem;
+    }
+
+    .parish-tier-amount {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--burgundy-dark);
+      white-space: nowrap;
+    }
+
+    .parish-tier.tier-top .parish-tier-amount {
+      color: var(--burgundy);
+      font-size: 1.35rem;
+    }
+
+    .parish-note {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.3rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
     .bank-details {
@@ -944,6 +1073,13 @@
 
     @media (max-width: 480px) {
       .brick-grid { grid-template-columns: 1fr 1fr; }
+      .brick-featured { grid-column: 1 / -1; }
+
+      .parish-tier {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
 
       .spec-row {
         flex-direction: column;
@@ -1368,36 +1504,111 @@
   <section class="donate" id="doneaza">
     <div class="container">
       <h2 class="section-title">Cum poți contribui</h2>
-      <p class="section-subtitle">Pune și tu o &laquo;cărămidă&raquo; &mdash; fiecare sumă contează</p>
+      <p class="section-subtitle">Pune și tu o &laquo;cărămidă&raquo; &mdash; fiecare contribuție contează</p>
 
-      <div class="brick-grid">
-        <div class="brick">
-          <div class="brick-amount">100 CHF</div>
-          <div class="brick-label">o cărămidă</div>
+      <div class="donate-tabs" role="tablist" aria-label="Categorii de contribuții">
+        <button class="donate-tab active" role="tab" aria-selected="true"
+                id="tab-individual" onclick="switchDonateTab('individual')">
+          Persoane fizice &amp; Familii
+          <small>până la 25'000 CHF și orice sumă</small>
+        </button>
+        <button class="donate-tab" role="tab" aria-selected="false"
+                id="tab-parish" onclick="switchDonateTab('parish')">
+          Parohii &amp; Mari Binefăcători
+          <small>25'000 &ndash; 500'000 CHF</small>
+        </button>
+      </div>
+
+      <!-- TAB 1: Persoane fizice & Familii -->
+      <div class="donate-panel active" id="panel-individual" role="tabpanel" aria-labelledby="tab-individual">
+        <div class="brick-grid">
+          <div class="brick">
+            <div class="brick-amount">1'000 CHF</div>
+            <div class="brick-label">Dăruitor</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">2'000 CHF</div>
+            <div class="brick-label">~1 m&sup2; din centru</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">3'000 CHF</div>
+            <div class="brick-label">Sprijin pentru tabere</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">4'000 CHF</div>
+            <div class="brick-label">~2 m&sup2; din centru</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">5'000 CHF</div>
+            <div class="brick-label">~3 m&sup2; din centru</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">10'000 CHF</div>
+            <div class="brick-label">~5 m&sup2; din centru</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">15'000 CHF</div>
+            <div class="brick-label">Sprijin pentru o cameră</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">20'000 CHF</div>
+            <div class="brick-label">Un loc complet de cazare</div>
+          </div>
+          <div class="brick brick-featured">
+            <div class="brick-amount">25'000 CHF</div>
+            <div class="brick-label">Sprijinitor</div>
+          </div>
+          <div class="brick brick-any">
+            <strong>Orice sumă, din inimă</strong> &mdash; 100 CHF, 250 CHF, 500 CHF sau cât poate fiecare.
+            <em>Nu valoarea în sine contează, ci faptul că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;</em>
+          </div>
         </div>
-        <div class="brick">
-          <div class="brick-amount">500 CHF</div>
-          <div class="brick-label">un stâlp</div>
+      </div>
+
+      <!-- TAB 2: Parohii, Comunități & Mari Binefăcători -->
+      <div class="donate-panel" id="panel-parish" role="tabpanel" aria-labelledby="tab-parish">
+        <div class="parish-tiers">
+          <div class="parish-tier tier-top">
+            <div class="parish-tier-info">
+              <div class="parish-tier-rank">Mare Ctitor</div>
+              <div class="parish-tier-desc">Un nivel întreg al centrului (1 din 4 niveluri)</div>
+            </div>
+            <div class="parish-tier-amount">500'000 CHF</div>
+          </div>
+          <div class="parish-tier">
+            <div class="parish-tier-info">
+              <div class="parish-tier-rank">Ctitor</div>
+              <div class="parish-tier-desc">O aripă a clădirii (jumătate de nivel)</div>
+            </div>
+            <div class="parish-tier-amount">250'000 CHF</div>
+          </div>
+          <div class="parish-tier">
+            <div class="parish-tier-info">
+              <div class="parish-tier-rank">Mare Binefăcător</div>
+              <div class="parish-tier-desc">Un spațiu comun major (capela, sala de mese sau bucătăria)</div>
+            </div>
+            <div class="parish-tier-amount">100'000 CHF</div>
+          </div>
+          <div class="parish-tier">
+            <div class="parish-tier-info">
+              <div class="parish-tier-rank">Binefăcător</div>
+              <div class="parish-tier-desc">O cameră de tabără sau o sală de activități</div>
+            </div>
+            <div class="parish-tier-amount">50'000 CHF</div>
+          </div>
+          <div class="parish-tier">
+            <div class="parish-tier-info">
+              <div class="parish-tier-rank">Sprijinitor</div>
+              <div class="parish-tier-desc">Un loc complet de cazare pentru copii și tineri</div>
+            </div>
+            <div class="parish-tier-amount">25'000 CHF</div>
+          </div>
         </div>
-        <div class="brick">
-          <div class="brick-amount">1'000 CHF</div>
-          <div class="brick-label">o fereastră</div>
-        </div>
-        <div class="brick">
-          <div class="brick-amount">5'000 CHF</div>
-          <div class="brick-label">o cameră</div>
-        </div>
-        <div class="brick">
-          <div class="brick-amount">10'000 CHF</div>
-          <div class="brick-label">un etaj</div>
-        </div>
-        <div class="brick">
-          <div class="brick-amount">50'000 CHF</div>
-          <div class="brick-label">un acoperiș</div>
-        </div>
-        <div class="brick brick-any">
-          ...sau orice sumă, din inimă. Nu valoarea în sine contează, ci faptul
-          că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;
+
+        <div class="parish-note">
+          Parohiile și comunitățile pot contribui prin colecte speciale, serbări ale
+          copiilor, concerte de colinde sau contribuții eșalonate. Toți ctitorii,
+          binefăcătorii și donatorii vor fi pomeniți la Sfânta Liturghie.
         </div>
       </div>
 
@@ -1511,9 +1722,12 @@
         <h3>So können Sie helfen</h3>
 
         <p>
-          Jeder Beitrag zählt: 100 CHF, 500 CHF, 1'000 CHF, 5'000 CHF,
-          10'000 CHF oder jeder Betrag, der Ihnen möglich ist. Bitte verwenden
-          Sie die oben angegebenen Bankdaten mit dem Vermerk
+          <strong>Für Privatpersonen &amp; Familien:</strong> CHF 1'000, 2'000, 3'000,
+          4'000, 5'000, 10'000, 15'000, 20'000 oder 25'000 &mdash; sowie jeder beliebige
+          Betrag (z.&thinsp;B. 100, 250 oder 500 CHF).<br>
+          <strong>Für Kirchgemeinden &amp; Grossspender:</strong> CHF 25'000, 50'000,
+          100'000, 250'000 oder 500'000 (1 ganze Etage).<br>
+          Bitte verwenden Sie die oben angegebenen Bankdaten mit dem Vermerk
           &laquo;Cabana La Cordée &mdash; Projekt Wallis&raquo;.
         </p>
 
@@ -1617,6 +1831,18 @@
       if (Math.abs(diff) > 50) moveSlider(diff > 0 ? 1 : -1);
       autoSlide = setInterval(() => moveSlider(1), 5000);
     }, { passive: true });
+
+    // --- Donate category tabs ---
+    function switchDonateTab(tab) {
+      ['individual', 'parish'].forEach(name => {
+        const isActive = name === tab;
+        const btn = document.getElementById('tab-' + name);
+        const panel = document.getElementById('panel-' + name);
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        panel.classList.toggle('active', isActive);
+      });
+    }
 
     // --- German toggle ---
     function toggleGerman() {
