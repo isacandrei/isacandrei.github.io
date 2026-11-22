@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cabana La Cordée — Proiect al Bisericii Ortodoxe Române din Berna</title>
+  <title>Centru pentru Copii și Tineri în Valais — Biserica Ortodoxă Română din Elveția</title>
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -176,8 +176,20 @@
     .hero-logo {
       width: 100px;
       height: auto;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    .hero-blessing {
+      display: inline-block;
+      background: rgba(200,169,81,0.16);
+      border: 1px solid rgba(232,217,160,0.5);
+      color: var(--gold-light);
+      padding: 0.4rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.2rem;
     }
 
     .hero h1 {
@@ -253,6 +265,21 @@
       margin: 2rem 0;
       font-style: italic;
       color: var(--text-light);
+    }
+
+    .appeal-signature {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--cream-dark);
+      color: var(--burgundy);
+      font-size: 0.98rem;
+    }
+
+    .appeal-signature small {
+      display: block;
+      color: var(--text-light);
+      font-size: 0.88rem;
+      margin-top: 0.2rem;
     }
 
     /* ===== PHOTO SLIDER ===== */
@@ -594,6 +621,123 @@
       left: 0;
       color: var(--gold-dark);
       font-size: 1.3rem;
+    }
+
+    .chapel-caption {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      font-style: italic;
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+
+    /* ===== PARISH INVOLVEMENT & SHARE ===== */
+    .parishes-section {
+      background: var(--white);
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .parish-ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .parish-idea-card {
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      border-radius: 10px;
+      padding: 1.6rem;
+    }
+
+    .parish-idea-card h4 {
+      color: var(--burgundy);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .parish-idea-card p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .parish-idea-link {
+      display: inline-block;
+      margin-top: 0.7rem;
+      color: var(--burgundy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+
+    .parish-idea-link:hover {
+      color: var(--gold-dark);
+      text-decoration: underline;
+    }
+
+    .share-box {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      border: 1px solid var(--gold-light);
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .share-box h3 {
+      color: var(--burgundy);
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .share-box p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid var(--burgundy);
+      background: var(--white);
+      color: var(--burgundy);
+      transition: all 0.2s;
+    }
+
+    .share-btn:hover {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    .share-btn-whatsapp {
+      background: #1E7E45;
+      border-color: #1E7E45;
+      color: var(--white);
+    }
+
+    .share-btn-whatsapp:hover {
+      background: #176637;
+      border-color: #176637;
+      color: var(--white);
     }
 
     /* ===== FINANCIAL / PROGRESS ===== */
@@ -1054,6 +1198,7 @@
       nav { display: none; }
 
       .details-grid,
+      .parish-ideas-grid,
       .finance-cards { grid-template-columns: 1fr; }
 
       .brick-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1140,6 +1285,7 @@
         <a href="#proiect">Proiectul</a>
         <a href="#galerie">Galerie</a>
         <a href="#capela">Capela</a>
+        <a href="#parohii">Parohii</a>
         <a href="#financiar">Situația</a>
         <a href="#doneaza" class="nav-donate">Donează</a>
       </nav>
@@ -1152,10 +1298,11 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <img src="photos/Logo-Sf-Gheorghe-mic.png" alt="Logo" class="hero-logo">
-      <h1>O cabană pentru <em>copiii și tinerii noștri</em></h1>
-      <p class="hero-subtitle">Un loc de tabere, educație și comunitate<br>
-        în inima Alpilor Elvețieni</p>
-      <p class="hero-church">Proiect al Parohiei Sf. Mare Mucenic Gheorghe &mdash; Biserica Ortodoxă Română din Berna</p>
+      <div><span class="hero-blessing">&#9769; Cu binecuvântarea ÎPS Părinte Mitropolit Iosif</span></div>
+      <h1>Un centru pentru <em>copiii și tinerii noștri</em></h1>
+      <p class="hero-subtitle">Un loc de tabere, credință, educație și comuniune<br>
+        în inima Alpilor Elvețieni (Valais)</p>
+      <p class="hero-church">Lucrare comună a parohiilor ortodoxe române din Elveția &mdash; inițiată de Parohia „Sf. Mare Mucenic Gheorghe” din Berna</p>
       <a href="#doneaza" class="hero-cta">Pune și tu o cărămidă</a>
     </div>
   </section>
@@ -1164,52 +1311,57 @@
   <section class="appeal" id="proiect">
     <div class="container">
       <h2 class="section-title">Apel către comunitatea românească</h2>
-      <p class="section-subtitle">O șansă pentru un viitor împreună</p>
+      <p class="section-subtitle">O lucrare comună pentru generațiile care vin</p>
 
       <div class="appeal-text">
-        <p class="appeal-greeting">Dragii noștri, Hristos a Înviat!</p>
+        <p class="appeal-greeting">Dragii noștri, Doamne ajută!</p>
 
         <p>
-          Parohia Sf. Mare Mucenic Gheorghe din Berna, parte a Mitropoliei Ortodoxe
-          Române pentru Europa de Vest și de Sud, deservește comunitatea ortodoxă
-          prin slujbe regulate, ore de religie pentru copii și tineri, cursuri de
-          limba română pentru diaspora, cursuri de germană și franceză pentru
-          integrare, precum și programe sociale pentru familii.
+          La îndemnul și cu binecuvântarea <strong>Înaltpreasfințitului Părintelui nostru
+          Iosif</strong>, Mitropolitul Europei Occidentale și Meridionale, dorim să
+          inițiem și să susținem împreună un proiect deosebit de important pentru
+          viitorul copiilor și tinerilor români din Elveția: achiziționarea și
+          amenajarea unui centru destinat taberelor, întâlnirilor și activităților
+          duhovnicești și educative.
         </p>
 
         <p>
-          Astăzi avem o oportunitate unică: achiziționarea unei cabane într-o
-          stațiune montană din cantonul Valais &mdash; <strong>Pension La
-          Cordée</strong>. Această proprietate excepțională poate deveni un loc de
-          tabere pentru copii și tineri, retrageri spirituale, conferințe, cursuri
-          intensive de limbă și alte activități educative și sociale.
+          După analiza mai multor opțiuni, am identificat o proprietate excepțională
+          într-o stațiune montană din <strong>cantonul Valais</strong>, cu 24 de camere
+          și o capacitate de aproximativ <strong>105 locuri de cazare</strong>. Aceasta
+          poate deveni un adevărat cămin pentru tânăra generație &mdash; un loc în care
+          copiii și tinerii să se roage, să crească în credință, să-și păstreze limba și
+          identitatea românească, să lege prietenii și să descopere bucuria comuniunii
+          în Biserică.
         </p>
 
         <div class="appeal-highlight">
-          &laquo;&thinsp;Scopul nostru nu este comercial. Dorim să folosim această
-          proprietate pentru un scop caritabil, în beneficiul copiilor, tinerilor,
-          familiilor și tuturor celor interesați &mdash; oferind un cadru care
-          promovează educația, integrarea, viața spirituală și coeziunea
-          comunitară.&thinsp;&raquo;
+          &laquo;&thinsp;Nu privim acest proiect ca pe inițiativa unei singure parohii,
+          ci ca pe o lucrare comună a comunității noastre bisericești din Elveția,
+          deschisă tuturor parohiilor și chiar taberelor la nivelul întregii Mitropolii.
+          Nu este vorba doar despre achiziționarea unei clădiri, ci despre a investi în
+          sufletele copiilor noștri și în viitorul Bisericii.&thinsp;&raquo;
         </div>
 
         <p>
-          Spre deosebire de comunitățile religioase recunoscute oficial, parohia
-          noastră nu primește subvenții de la statul elvețian. Toate activitățile
-          și proiectele sunt finanțate din mijloace proprii și prin generozitatea
-          donatorilor și sponsorilor. Fiecare franc investit trebuie gestionat cu
-          cea mai mare responsabilitate.
+          Scopul nostru nu este comercial &mdash; dorim să folosim acest centru exclusiv
+          în scop caritabil, pastoral și educativ, în beneficiul copiilor, tinerilor și
+          familiilor. Spre deosebire de comunitățile religioase recunoscute oficial,
+          parohiile noastre nu primesc subvenții de la statul elvețian; toate proiectele
+          sunt susținute din mijloace proprii și prin generozitatea credincioșilor și
+          binefăcătorilor.
         </p>
 
         <p>
-          Vă rugăm: nu opriți acest apel la voi. Vorbiți cu familia, prietenii,
-          cunoscuții care pot înțelege această nevoie și care vor să sprijine un
-          loc de educație, tabere și identitate românească în Elveția.
+          Vă invităm cu dragoste frățească să sprijiniți această inițiativă și să dați
+          mai departe acest apel familiei, prietenilor și parohiilor. Orice contribuție,
+          oricât de mică, este binevenită și importantă.
         </p>
 
-        <p>
-          Cu credință și nădejde, haideți să facem acest pas împreună.
-        </p>
+        <div class="appeal-signature">
+          Cu dragoste frățească, <strong>Pr. Laurențiu Precup și Pr. Ștefan</strong>
+          <small>Parohia Ortodoxă Română „Sfântul Mare Mucenic Gheorghe” &mdash; Berna</small>
+        </div>
       </div>
     </div>
   </section>
@@ -1217,15 +1369,15 @@
   <!-- ===== PHOTO SLIDER ===== -->
   <section class="slider-section" id="galerie">
     <div class="container">
-      <h2 class="section-title">Pension La Cordée &mdash; Valais</h2>
-      <p class="section-subtitle">1.250 m altitudine, pe cea mai frumoasă terasă însorită din Valais</p>
+      <h2 class="section-title">Centrul din Valais &mdash; Galerie foto</h2>
+      <p class="section-subtitle">1.250 m altitudine, pe o terasă însorită din Alpii Elvețieni</p>
 
       <div class="slider-wrapper">
         <div class="slider-track" id="sliderTrack">
           <!-- SLIDE 1: Exterior -->
           <div class="slide">
-            <img src="photos/1.png" alt="Pension La Cordée — vedere exterioară">
-            <div class="slide-caption">Pension La Cordée &mdash; vedere exterioară cu parcare privată</div>
+            <img src="photos/1.png" alt="Centrul din Valais — vedere exterioară">
+            <div class="slide-caption">Vedere exterioară a centrului, cu terasă generoasă și parcare privată</div>
           </div>
           <!-- SLIDE 2: Panorama -->
           <div class="slide">
@@ -1239,13 +1391,13 @@
           </div>
           <!-- SLIDE 4: Interior collage -->
           <div class="slide">
-            <img src="photos/5.png" alt="Spații interioare — salon, sufragerie, biliard, sală de seminarii">
-            <div class="slide-caption">Spații comune: salon, sufragerie, sală de jocuri cu biliard, sală de seminarii</div>
+            <img src="photos/5.png" alt="Spații interioare — salon de lectură, sală de mese, biliard, sală de reuniuni">
+            <div class="slide-caption">Spații comune: salon de lectură, sală de mese, sală de jocuri cu biliard, sală de reuniuni</div>
           </div>
           <!-- SLIDE 5: Rooms & kitchen -->
           <div class="slide">
-            <img src="photos/6.png" alt="Bucătărie profesională și dormitoare">
-            <div class="slide-caption">Bucătărie profesională complet echipată și dormitoare spațioase</div>
+            <img src="photos/6.png" alt="Bucătărie profesională și camere de cazare">
+            <div class="slide-caption">Bucătărie profesională complet echipată și camere spațioase (~105 locuri)</div>
           </div>
         </div>
 
@@ -1266,23 +1418,23 @@
       <div class="details-grid">
         <div class="detail-card">
           <span class="detail-icon">&#127968;</span>
-          <h4>24 de camere</h4>
-          <p>Majoritatea cu balcon, cu priveliște spre Valea Ronului și crestele înconjurătoare.</p>
-        </div>
-        <div class="detail-card">
-          <span class="detail-icon">&#9728;&#65039;</span>
-          <h4>Terasă de 100 m²</h4>
-          <p>Orientare plein sud &mdash; soare din zori până în amurg, perfectă pentru activități în aer liber.</p>
+          <h4>~105 locuri · 24 de camere</h4>
+          <p>Baie comună cu duș și WC la fiecare două camere; majoritatea au balcon &mdash; ideal pentru grupuri numeroase.</p>
         </div>
         <div class="detail-card">
           <span class="detail-icon">&#127963;&#65039;</span>
-          <h4>~1.100 m² suprafață</h4>
-          <p>Patru niveluri cu spații generoase: sală de seminarii, carnotzet, zonă de relaxare cu biliard.</p>
+          <h4>~1.100 m² pe 4 niveluri</h4>
+          <p>Sală de mese, bucătărie completă, salon de lectură, sală de reuniuni, sală de jocuri, spațiu pentru capelă și carnotzet.</p>
         </div>
         <div class="detail-card">
-          <span class="detail-icon">&#127956;&#65039;</span>
-          <h4>1.231 m² teren</h4>
-          <p>Cu 19 locuri de parcare private, unele acoperite. Liniște și intimitate garantate.</p>
+          <span class="detail-icon">&#9728;&#65039;</span>
+          <h4>Terasă de 100 m² &amp; 1.231 m² teren</h4>
+          <p>Orientare spre sud cu soare întreaga zi, teren în jurul clădirii și 19 locuri de parcare private.</p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">&#10024;</span>
+          <h4>Pregătit pentru tabere</h4>
+          <p>Configurație practică de pensiune familială &mdash; gata de utilizare fără investiții majore inițiale.</p>
         </div>
       </div>
 
@@ -1293,27 +1445,27 @@
         </div>
         <div class="spec-row">
           <span class="spec-label">Altitudine</span>
-          <span class="spec-value">1.250 m</span>
+          <span class="spec-value">~1.250 m</span>
         </div>
         <div class="spec-row">
-          <span class="spec-label">Construcție / Renovare</span>
-          <span class="spec-value">1973 / 2010–2020</span>
+          <span class="spec-label">Capacitate cazare</span>
+          <span class="spec-value">~105 persoane</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Camere</span>
+          <span class="spec-value">24 (baie cu duș/WC la fiecare 2 camere, majoritatea cu balcon)</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">Suprafață locuibilă</span>
-          <span class="spec-value">~1.100 m²</span>
+          <span class="spec-value">~1.100 m² pe 4 niveluri</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">Suprafață teren</span>
           <span class="spec-value">1.231 m²</span>
         </div>
         <div class="spec-row">
-          <span class="spec-label">Camere</span>
-          <span class="spec-value">24 (cu balcon)</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Niveluri</span>
-          <span class="spec-value">4</span>
+          <span class="spec-label">Construcție / Renovare</span>
+          <span class="spec-value">1973 / 2010–2020</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">Parcare</span>
@@ -1321,7 +1473,7 @@
         </div>
         <div class="spec-row">
           <span class="spec-label">Facilități</span>
-          <span class="spec-value">Bucătărie profesională, sală seminarii, carnotzet, biliard</span>
+          <span class="spec-value">Sală de mese, bucătărie profesională, salon de lectură, sală de reuniuni, sală de jocuri, spațiu pentru capelă, carnotzet, spălătorie, economat</span>
         </div>
       </div>
     </div>
@@ -1335,7 +1487,7 @@
 
       <div class="location-grid">
         <div class="location-map">
-          <img src="photos/3.png" alt="Harta regiunii Valais" onclick="openLightbox(this.src)">
+          <img src="photos/2.png" alt="Panoramă din cantonul Valais spre Valea Ronului și Alpi" onclick="openLightbox(this.src)">
         </div>
         <div class="location-info">
           <h3>Cantonul Valais, un cadru excepțional</h3>
@@ -1345,9 +1497,9 @@
             autentică și liniștită, înconjurată de crestele Alpilor Elvețieni.
           </p>
           <p>
-            Zona beneficiază de o poziție privilegiată în Valais, cu acces
-            facil și facilități excelente în apropiere, inclusiv băi termale și
-            trasee montane pentru activități pe tot parcursul anului.
+            Zona oferă posibilități de recreere în toate anotimpurile: acces
+            facil la zona de schi, băi termale renumite, drumeții, activități
+            sportive și programe în aer liber pentru copii, tineri și familii.
           </p>
 
           <ul class="distance-list">
@@ -1365,38 +1517,39 @@
   <!-- ===== CHAPEL ===== -->
   <section class="chapel" id="capela">
     <div class="container">
-      <h2 class="section-title">Capela din apropiere</h2>
-      <p class="section-subtitle">Un element esențial pentru desfășurarea taberelor</p>
+      <h2 class="section-title">Capela ortodoxă a centrului</h2>
+      <p class="section-subtitle">Viața duhovnicească în inima taberelor și retragerilor</p>
 
       <div class="chapel-grid">
         <div class="chapel-text">
-          <h3>Loc de rugăciune în inima munților</h3>
+          <h3>Propria noastră capelă la parterul clădirii</h3>
           <p>
-            În apropierea pensiunii se află o capelă spațioasă, cu o atmosferă
-            caldă, din lemn natural, care poate găzdui slujbe și rugăciuni pe
-            durata taberelor și retragerilor spirituale.
+            Un aspect deosebit de important al proprietății este existența, la
+            parter, a unei săli generoase (actualmente spațiu multimedia/disco),
+            care se pretează excelent la <strong>transformarea într-o capelă
+            ortodoxă</strong> proprie, cu altar, iconostas și cele necesare slujirii.
           </p>
           <p>
-            Existența acestui lăcaș de cult în imediata vecinătate este un
-            avantaj decisiv: copiii și tinerii vor avea acces la un spațiu de
-            rugăciune autentic, unde se pot desfășura Sfânta Liturghie, Vecernia,
-            catehezele și momentele de reculegere &mdash; fără a fi nevoiți să se
-            deplaseze.
+            Aici se vor putea săvârși Sfânta Liturghie, slujbele de dimineață și
+            de seară, precum și momente de rugăciune și cateheză &mdash; într-o
+            zonă dedicată, care nu perturbă spațiile de cazare. Astfel, centrul nu
+            va fi doar un loc de vacanță, ci un spațiu în care viața duhovnicească
+            ocupă locul central.
           </p>
           <p>
-            Combinația dintre cabana cu facilități moderne și capela din
-            apropiere creează cadrul ideal pentru tabere ortodoxe complete:
-            activități educative, recreere în natură și viață liturgică
-            &mdash; toate într-un singur loc.
+            În plus, în imediata vecinătate a proprietății se află și o capelă
+            spațioasă din lemn natural, disponibilă pentru slujbe și întâlniri cu
+            grupuri și mai numeroase.
           </p>
 
           <div class="chapel-badge">
-            &#9769; Esențial pentru programul spiritual al taberelor
+            &#9769; Capelă ortodoxă proprie la parter + capelă spațioasă în apropiere
           </div>
         </div>
         <div>
-          <img src="photos/capela.jpeg" alt="Capela din apropierea pensiunii"
+          <img src="photos/capela.jpeg" alt="Capela din lemn din apropierea centrului"
                class="chapel-img" onclick="openLightbox(this.src)">
+          <p class="chapel-caption">Capela din lemn din apropiere, disponibilă suplimentar pentru grupuri numeroase</p>
         </div>
       </div>
     </div>
@@ -1439,19 +1592,83 @@
   <section class="vision">
     <div class="container">
       <h2 class="section-title">Ce va deveni acest loc</h2>
-      <p class="section-subtitle">Un centru de educație, tabere și comunitate</p>
+      <p class="section-subtitle">Un centru deschis tuturor parohiilor din Elveția și din Mitropolie</p>
 
       <ul class="vision-list">
-        <li>Tabere de vară și iarnă pentru copii și tineri din toată Elveția</li>
-        <li>Sfânta Liturghie și slujbe la capela din apropiere, în cadru natural</li>
-        <li>Retrageri spirituale și zile de reculegere</li>
-        <li>Cursuri intensive de limba română pentru copiii din diaspora</li>
-        <li>Cursuri de germană și franceză pentru integrare</li>
-        <li>Conferințe, seminarii și activități culturale</li>
-        <li>Programe sociale și de sprijin pentru familii</li>
-        <li>Ore de religie și cateheze într-un cadru natural minunat</li>
-        <li>Un loc de întâlnire pentru comunitatea românească din Elveția</li>
+        <li>Tabere de vară și iarnă pentru copii și adolescenți din toate parohiile</li>
+        <li>Sfânta Liturghie, rugăciuni și cateheze în capela ortodoxă proprie a centrului</li>
+        <li>Întâlniri și tabere la nivelul întregii Mitropolii, cu tineri din Elveția și din România</li>
+        <li>Weekenduri, vacanțe și programe de sprijin pentru familii</li>
+        <li>Activități dedicate copiilor din diaspora, pentru păstrarea limbii române, a credinței și a identității</li>
+        <li>Întâlniri duhovnicești, conferințe și zile de reculegere pentru credincioși</li>
+        <li>Cursuri de limba română, precum și de germană și franceză pentru integrare</li>
+        <li>Un loc de comuniune deschis tuturor parohiilor românești din Elveția</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ===== PARISH INVOLVEMENT ===== -->
+  <section class="parishes-section" id="parohii">
+    <div class="container">
+      <h2 class="section-title">Cum se pot implica parohiile</h2>
+      <p class="section-subtitle">Fiecare parohie și fiecare preot poate avea un rol în această lucrare comună</p>
+
+      <div class="parish-ideas-grid">
+        <div class="parish-idea-card">
+          <h4>Colectă specială în parohie</h4>
+          <p>
+            Organizarea unei colecte dedicate după Sfânta Liturghie, prin care
+            credincioșii din fiecare comunitate să fie invitați să devină părtași
+            la acest centru al copiilor și tinerilor.
+          </p>
+        </div>
+        <div class="parish-idea-card">
+          <h4>Serbări ale copiilor &amp; concerte de colinde</h4>
+          <p>
+            Evenimente de susținere în comunitate &mdash; după modelul Serbării de
+            Crăciun organizate la Berna prin Școala Românească „Sfântul Andrei
+            Șaguna” (duminică, 13 decembrie).
+          </p>
+        </div>
+        <div class="parish-idea-card">
+          <h4>Acțiuni caritabile &amp; agape comunitare</h4>
+          <p>
+            Târguri de binefacere, întâlniri ale tinerilor sau inițiative ale
+            familiilor din parohie dedicate strângerii de fonduri pentru centrul
+            din Valais.
+          </p>
+        </div>
+        <div class="parish-idea-card">
+          <h4>Contribuție de parohie &amp; ctitorie</h4>
+          <p>
+            Parohiile pot susține proiectul ca Sprijinitor, Binefăcător sau Ctitor,
+            într-o singură tranșă sau eșalonat, centrul rămânând deschis tuturor
+            comunităților.
+          </p>
+          <a href="#doneaza" class="parish-idea-link" onclick="openParishTab()">
+            Vezi pragurile pentru parohii &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="share-box">
+        <h3>Dă mai departe acest apel</h3>
+        <p>
+          Ajută-ne ca acest proiect să ajungă la cât mai multe familii, prieteni
+          și parohii românești din Elveția.
+        </p>
+        <div class="share-buttons">
+          <button type="button" class="share-btn share-btn-whatsapp" onclick="shareWhatsApp()">
+            Distribuie pe WhatsApp
+          </button>
+          <button type="button" class="share-btn" onclick="shareEmail()">
+            Trimite pe Email
+          </button>
+          <button type="button" class="share-btn" id="copyLinkBtn" onclick="copyPageLink()">
+            Copiază linkul
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1641,7 +1858,7 @@
         <!-- ===================================================== -->
 
         <div class="bank-note">
-          <strong>Mențiune:</strong> &laquo;Cabana La Cordée &mdash; Proiect Valais&raquo;
+          <strong>Mențiune:</strong> &laquo;Centrul de Tabere &mdash; Proiect Valais&raquo;
         </div>
 
         <!-- TODO: Replace with actual QR payment code image -->
@@ -1661,54 +1878,54 @@
       </button>
 
       <div class="german-content" id="germanContent">
-        <h3>Ein Ferienhaus für unsere Kinder und Jugendlichen</h3>
+        <h3>Ein Jugend- und Ferienzentrum für unsere Kinder und Jugendlichen</h3>
 
         <p>
-          Die Rumänisch-Orthodoxe Kirchgemeinde Bern (Pfarrei Hl. Grossmärtyrer
-          Georg) ist Teil der Rumänisch-Orthodoxen Metropolie für West- und
-          Südeuropa. Wir betreuen die orthodoxe Gemeinschaft in der Schweiz durch
-          regelmässige Gottesdienste, Religionsunterricht für Kinder und
-          Jugendliche, Rumänisch-Kurse für die Diaspora, Deutsch- und
-          Französischkurse zur Integration sowie soziale Programme für Familien.
+          Mit dem Segen und auf Anregung Seiner Eminenz <strong>Metropolit Iosif</strong>
+          (Rumänisch-Orthodoxe Metropolie für West- und Südeuropa) initiieren die
+          rumänisch-orthodoxen Kirchgemeinden in der Schweiz &mdash; angeführt von der
+          Pfarrei Hl. Grossmärtyrer Georg in Bern (Pfr. Laurențiu Precup und
+          Pfr. Ștefan) &mdash; ein gemeinsames Werk: den Erwerb eines Zentrums für
+          Kinder- und Jugendlager, geistliche Einkehrtage und Gemeindebegegnungen.
         </p>
 
-        <h3>Die Liegenschaft: Pension La Cordée, Wallis</h3>
+        <h3>Die Liegenschaft im Kanton Wallis</h3>
 
         <p>
-          Die Pension La Cordée befindet sich auf 1'250 m Höhe in einer
-          Bergstation im Wallis, auf der Sonnenterrasse über dem
+          Das Gebäude befindet sich auf rund 1'250 m Höhe in einer familiären
+          Bergstation im Kanton Wallis, auf einer Sonnenterrasse über dem
           Rhonetal. Das 1973 erbaute und zwischen 2010 und 2020 teilweise
-          renovierte Gebäude bietet rund 1'100 m² Nutzfläche auf vier Etagen,
-          24 Zimmer (die meisten mit Balkon), grosszügige Gemeinschaftsräume,
-          eine professionelle Küche, eine 100 m² grosse Südterrasse und 19
-          private Parkplätze.
+          renovierte Haus bietet rund 1'100 m² Nutzfläche auf vier Etagen,
+          <strong>24 Zimmer mit Platz für rund 105 Personen</strong> (je zwei Zimmer
+          teilen sich ein Bad mit Dusche/WC, die meisten mit Balkon), einen
+          Speisesaal, eine professionelle Küche, Lesesalon, Versammlungs- und
+          Spielräume, eine 100 m² grosse Südterrasse sowie 19 private Parkplätze.
         </p>
 
-        <h3>Die Kapelle &mdash; ein entscheidender Vorteil</h3>
+        <h3>Eine eigene orthodoxe Kapelle im Haus</h3>
 
         <p>
-          In unmittelbarer Nähe der Pension befindet sich eine geräumige Kapelle
-          aus Naturholz, die für Gottesdienste und Gebete während der Lager und
-          geistlichen Einkehrtage genutzt werden kann. Die Heilige Liturgie, die
-          Vesper und der Religionsunterricht können dort abgehalten werden &mdash;
-          eine einzigartige Möglichkeit für orthodoxe Jugendlager.
+          Ein entscheidender Vorteil der Liegenschaft ist ein grosszügiger Raum im
+          Erdgeschoss, der sich ideal in eine <strong>eigene orthodoxe Kapelle</strong>
+          mit Altar und Ikonostase umgestalten lässt &mdash; getrennt von den
+          Schlafräumen. Zusätzlich steht in unmittelbarer Nähe eine geräumige
+          Holzkapelle für Gottesdienste mit grösseren Gruppen zur Verfügung.
         </p>
 
         <h3>Unsere Vision</h3>
 
         <p>
-          Diese Liegenschaft soll ein Ort für Kinder- und Jugendlager,
-          spirituelle Einkehrtage, Konferenzen, Intensivsprachkurse und andere
-          Bildungs- und Sozialaktivitäten werden. Unser Ziel ist nicht
-          kommerzieller Natur &mdash; wir möchten sie gemeinnützig nutzen, zum
-          Wohl der Gemeinschaft.
+          Dieses Zentrum soll allen rumänisch-orthodoxen Pfarreien in der Schweiz
+          und der gesamten Metropolie offenstehen: für Sommer- und Winterlager,
+          Familienwochenenden, Religionsunterricht, Sprach- und Integrationskurse
+          sowie geistliche Einkehrtage. Unser Ziel ist ausschliesslich gemeinnützig.
         </p>
 
         <h3>Finanzielle Situation</h3>
 
         <p>
           Im Gegensatz zu den offiziell anerkannten Religionsgemeinschaften
-          erhält unsere Kirchgemeinde keine Subventionen vom Schweizer Staat.
+          erhalten unsere Kirchgemeinden keine Subventionen vom Schweizer Staat.
           Alle Projekte werden aus eigenen Mitteln und durch Spenden finanziert.
         </p>
 
@@ -1728,12 +1945,12 @@
           <strong>Für Kirchgemeinden &amp; Grossspender:</strong> CHF 25'000, 50'000,
           100'000, 250'000 oder 500'000 (1 ganze Etage).<br>
           Bitte verwenden Sie die oben angegebenen Bankdaten mit dem Vermerk
-          &laquo;Cabana La Cordée &mdash; Projekt Wallis&raquo;.
+          &laquo;Jugendzentrum &mdash; Projekt Wallis&raquo;.
         </p>
 
         <p>
           Wir bitten Sie herzlich: Teilen Sie diesen Aufruf mit Ihrer Familie,
-          Freunden und Bekannten, die dieses Projekt unterstützen möchten.
+          Freunden, Bekannten und Ihrer Kirchgemeinde.
         </p>
       </div>
     </div>
@@ -1751,8 +1968,8 @@
         </div>
         <p>
           Biserica Ortodoxă Română &mdash; Berna<br>
-          Mitropolia Ortodoxă Română pentru<br>
-          Europa de Vest și de Sud
+          Mitropolia Ortodoxă Română a Europei<br>
+          Occidentale și Meridionale
         </p>
         <p style="margin-top: 0.8rem;">
           <a href="https://biserica-ortodoxa-berna.ch/" target="_blank">
@@ -1763,17 +1980,17 @@
       <div>
         <h4>Contact</h4>
         <p>
-          Pfr. Gheorghe Laurențiu Precup<br>
-          Președintele Parohiei<br><br>
+          Pr. Gheorghe Laurențiu Precup &amp; Pr. Ștefan<br>
+          Parohia Ortodoxă Română &mdash; Berna<br><br>
           Tel: <a href="tel:+41786317648">078 631 76 48</a><br>
           Email: <a href="mailto:laurentiuprecup@yahoo.de">laurentiuprecup@yahoo.de</a>
         </p>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 Parohia Sf. Mare Mucenic Gheorghe &mdash; Biserica Ortodoxă Română, Berna.
-      Proiect caritabil &mdash; toate donațiile sunt folosite exclusiv pentru
-      achiziționarea și amenajarea cabanei.
+      &copy; 2026 Parohia Sf. Mare Mucenic Gheorghe &mdash; Biserica Ortodoxă Română, Berna.
+      Proiect caritabil cu binecuvântarea ÎPS Mitropolit Iosif &mdash; toate donațiile sunt
+      folosite exclusiv pentru achiziționarea și amenajarea centrului.
     </div>
   </footer>
 
@@ -1842,6 +2059,49 @@
         btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
         panel.classList.toggle('active', isActive);
       });
+    }
+
+    function openParishTab() {
+      switchDonateTab('parish');
+    }
+
+    // --- Share helpers ---
+    function getSharePayload() {
+      const url = window.location.href.split('#')[0];
+      const text = 'Un centru pentru copiii și tinerii români din Elveția (Valais) — proiect comun al parohiilor ortodoxe române, cu binecuvântarea ÎPS Mitropolit Iosif:';
+      return { url, text };
+    }
+
+    function shareWhatsApp() {
+      const { url, text } = getSharePayload();
+      window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
+    }
+
+    function shareEmail() {
+      const { url, text } = getSharePayload();
+      const subject = 'Centru pentru copiii și tinerii români din Elveția (Valais)';
+      window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text + '\n\n' + url);
+    }
+
+    function copyPageLink() {
+      const { url } = getSharePayload();
+      const btn = document.getElementById('copyLinkBtn');
+      const showCopied = () => {
+        const orig = btn.textContent;
+        btn.textContent = 'Link copiat!';
+        setTimeout(() => { btn.textContent = orig; }, 2200);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(showCopied).catch(() => {});
+      } else {
+        const tmp = document.createElement('input');
+        tmp.value = url;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        document.body.removeChild(tmp);
+        showCopied();
+      }
     }
 
     // --- German toggle ---
