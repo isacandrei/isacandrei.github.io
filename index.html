@@ -909,7 +909,7 @@
 
     .brick-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.9rem;
     }
 
@@ -917,7 +917,7 @@
       background: var(--cream);
       border: 2px solid var(--cream-dark);
       border-radius: 10px;
-      padding: 1.15rem 0.6rem;
+      padding: 1.15rem 1rem;
       text-align: center;
       cursor: default;
       transition: border-color 0.2s, transform 0.2s;
@@ -935,9 +935,15 @@
     }
 
     .brick-label {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--text-light);
       margin-top: 0.25rem;
+    }
+
+    .brick-featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #FDF8F0 0%, #F4E8CC 100%);
+      border-color: var(--gold);
     }
 
     .brick-any {
@@ -1217,8 +1223,7 @@
     }
 
     @media (max-width: 480px) {
-      .brick-grid { grid-template-columns: 1fr 1fr; }
-      .brick-featured { grid-column: 1 / -1; }
+      .brick-grid { grid-template-columns: 1fr; }
 
       .parish-tier {
         flex-direction: column;
@@ -1639,14 +1644,14 @@
           </p>
         </div>
         <div class="parish-idea-card">
-          <h4>Contribuție de parohie &amp; ctitorie</h4>
+          <h4>Contribuție directă a parohiei</h4>
           <p>
-            Parohiile pot susține proiectul ca Sprijinitor, Binefăcător sau Ctitor,
+            Parohiile pot susține proiectul printr-o contribuție dedicată,
             într-o singură tranșă sau eșalonat, centrul rămânând deschis tuturor
             comunităților.
           </p>
           <a href="#doneaza" class="parish-idea-link" onclick="openParishTab()">
-            Vezi pragurile pentru parohii &rarr;
+            Vezi pragurile pentru biserici și parohii &rarr;
           </a>
         </div>
       </div>
@@ -1726,97 +1731,86 @@
       <div class="donate-tabs" role="tablist" aria-label="Categorii de contribuții">
         <button class="donate-tab active" role="tab" aria-selected="true"
                 id="tab-individual" onclick="switchDonateTab('individual')">
-          Persoane fizice &amp; Familii
-          <small>până la 25'000 CHF și orice sumă</small>
+          Enoriași &amp; Familii
+          <small>100 &ndash; 25'000 CHF și orice sumă</small>
         </button>
         <button class="donate-tab" role="tab" aria-selected="false"
                 id="tab-parish" onclick="switchDonateTab('parish')">
-          Parohii &amp; Mari Binefăcători
+          Biserici &amp; Parohii
           <small>25'000 &ndash; 500'000 CHF</small>
         </button>
       </div>
 
-      <!-- TAB 1: Persoane fizice & Familii -->
+      <!-- TAB 1: Enoriași & Familii -->
       <div class="donate-panel active" id="panel-individual" role="tabpanel" aria-labelledby="tab-individual">
         <div class="brick-grid">
-          <div class="brick">
-            <div class="brick-amount">1'000 CHF</div>
-            <div class="brick-label">Dăruitor</div>
-          </div>
-          <div class="brick">
-            <div class="brick-amount">2'000 CHF</div>
-            <div class="brick-label">~1 m&sup2; din centru</div>
-          </div>
-          <div class="brick">
-            <div class="brick-amount">3'000 CHF</div>
-            <div class="brick-label">Sprijin pentru tabere</div>
-          </div>
-          <div class="brick">
-            <div class="brick-amount">4'000 CHF</div>
-            <div class="brick-label">~2 m&sup2; din centru</div>
-          </div>
-          <div class="brick">
-            <div class="brick-amount">5'000 CHF</div>
-            <div class="brick-label">~3 m&sup2; din centru</div>
+          <div class="brick brick-featured">
+            <div class="brick-amount">25'000 CHF</div>
+            <div class="brick-label">Un loc complet de cazare</div>
           </div>
           <div class="brick">
             <div class="brick-amount">10'000 CHF</div>
-            <div class="brick-label">~5 m&sup2; din centru</div>
+            <div class="brick-label">Un zid la cameră</div>
           </div>
           <div class="brick">
-            <div class="brick-amount">15'000 CHF</div>
-            <div class="brick-label">Sprijin pentru o cameră</div>
+            <div class="brick-amount">5'000 CHF</div>
+            <div class="brick-label">Contribuție amenajare capelă</div>
           </div>
           <div class="brick">
-            <div class="brick-amount">20'000 CHF</div>
-            <div class="brick-label">Un loc complet de cazare</div>
+            <div class="brick-amount">2'500 CHF</div>
+            <div class="brick-label">Contribuție amenajare bucătărie</div>
           </div>
-          <div class="brick brick-featured">
-            <div class="brick-amount">25'000 CHF</div>
-            <div class="brick-label">Sprijinitor</div>
+          <div class="brick">
+            <div class="brick-amount">1'000 CHF</div>
+            <div class="brick-label">Contribuție amenajare spații comune</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">500 CHF</div>
+            <div class="brick-label">Un loc în tabără</div>
+          </div>
+          <div class="brick">
+            <div class="brick-amount">100 CHF</div>
+            <div class="brick-label">O cărămidă</div>
           </div>
           <div class="brick brick-any">
-            <strong>Orice sumă, din inimă</strong> &mdash; 100 CHF, 250 CHF, 500 CHF sau cât poate fiecare.
+            <strong>...sau orice sumă, din inimă.</strong>
             <em>Nu valoarea în sine contează, ci faptul că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;</em>
           </div>
         </div>
       </div>
 
-      <!-- TAB 2: Parohii, Comunități & Mari Binefăcători -->
+      <!-- TAB 2: Biserici & Parohii -->
       <div class="donate-panel" id="panel-parish" role="tabpanel" aria-labelledby="tab-parish">
         <div class="parish-tiers">
           <div class="parish-tier tier-top">
             <div class="parish-tier-info">
-              <div class="parish-tier-rank">Mare Ctitor</div>
-              <div class="parish-tier-desc">Un nivel întreg al centrului (1 din 4 niveluri)</div>
+              <div class="parish-tier-rank">Un nivel întreg al centrului</div>
+              <div class="parish-tier-desc">1 din cele 4 niveluri ale clădirii</div>
             </div>
             <div class="parish-tier-amount">500'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
-              <div class="parish-tier-rank">Ctitor</div>
-              <div class="parish-tier-desc">O aripă a clădirii (jumătate de nivel)</div>
+              <div class="parish-tier-rank">O jumătate de nivel</div>
             </div>
             <div class="parish-tier-amount">250'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
-              <div class="parish-tier-rank">Mare Binefăcător</div>
-              <div class="parish-tier-desc">Un spațiu comun major (capela, sala de mese sau bucătăria)</div>
+              <div class="parish-tier-rank">Spațiu comun major</div>
+              <div class="parish-tier-desc">Capelă / bucătărie</div>
             </div>
             <div class="parish-tier-amount">100'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
-              <div class="parish-tier-rank">Binefăcător</div>
-              <div class="parish-tier-desc">O cameră de tabără sau o sală de activități</div>
+              <div class="parish-tier-rank">2 locuri complete de cazare</div>
             </div>
             <div class="parish-tier-amount">50'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
-              <div class="parish-tier-rank">Sprijinitor</div>
-              <div class="parish-tier-desc">Un loc complet de cazare pentru copii și tineri</div>
+              <div class="parish-tier-rank">Un loc complet de cazare</div>
             </div>
             <div class="parish-tier-amount">25'000 CHF</div>
           </div>
@@ -1939,11 +1933,13 @@
         <h3>So können Sie helfen</h3>
 
         <p>
-          <strong>Für Privatpersonen &amp; Familien:</strong> CHF 1'000, 2'000, 3'000,
-          4'000, 5'000, 10'000, 15'000, 20'000 oder 25'000 &mdash; sowie jeder beliebige
-          Betrag (z.&thinsp;B. 100, 250 oder 500 CHF).<br>
-          <strong>Für Kirchgemeinden &amp; Grossspender:</strong> CHF 25'000, 50'000,
-          100'000, 250'000 oder 500'000 (1 ganze Etage).<br>
+          <strong>Für Gemeindemitglieder &amp; Familien:</strong> CHF 100 (ein Ziegelstein),
+          CHF 500 (ein Lagerplatz), CHF 1'000 (Gemeinschaftsräume), CHF 2'500 (Küche),
+          CHF 5'000 (Kapelle), CHF 10'000 (eine Zimmerwand), CHF 25'000 (ein kompletter
+          Übernachtungsplatz) &mdash; oder jeder beliebige Betrag.<br>
+          <strong>Für Kirchgemeinden &amp; Pfarreien:</strong> CHF 25'000 (1 Übernachtungsplatz),
+          CHF 50'000 (2 Übernachtungsplätze), CHF 100'000 (Kapelle / Küche), CHF 250'000
+          (eine halbe Etage) oder CHF 500'000 (eine ganze Etage).<br>
           Bitte verwenden Sie die oben angegebenen Bankdaten mit dem Vermerk
           &laquo;Jugendzentrum &mdash; Projekt Wallis&raquo;.
         </p>
