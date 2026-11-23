@@ -940,6 +940,16 @@
       margin-top: 0.25rem;
     }
 
+    .brick-perk {
+      font-size: 0.78rem;
+      color: var(--gold-dark);
+      margin-top: 0.5rem;
+      padding-top: 0.45rem;
+      border-top: 1px dashed var(--gold-light);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
     .brick-featured {
       grid-column: 1 / -1;
       background: linear-gradient(135deg, #FDF8F0 0%, #F4E8CC 100%);
@@ -1004,6 +1014,14 @@
       font-size: 0.84rem;
       color: var(--text-light);
       margin-top: 0.15rem;
+    }
+
+    .parish-tier-perk {
+      font-size: 0.8rem;
+      color: var(--gold-dark);
+      margin-top: 0.35rem;
+      font-weight: 600;
+      line-height: 1.4;
     }
 
     .parish-tier-amount {
@@ -1732,7 +1750,7 @@
         <button class="donate-tab active" role="tab" aria-selected="true"
                 id="tab-individual" onclick="switchDonateTab('individual')">
           Enoriași &amp; Familii
-          <small>100 &ndash; 25'000 CHF și orice sumă</small>
+          <small>100 &ndash; 75'000 CHF și orice sumă</small>
         </button>
         <button class="donate-tab" role="tab" aria-selected="false"
                 id="tab-parish" onclick="switchDonateTab('parish')">
@@ -1744,17 +1762,25 @@
       <!-- TAB 1: Enoriași & Familii -->
       <div class="donate-panel active" id="panel-individual" role="tabpanel" aria-labelledby="tab-individual">
         <div class="brick-grid">
-          <div class="brick brick-featured">
+          <div class="brick">
+            <div class="brick-amount">75'000 CHF</div>
+            <div class="brick-label">O cameră</div>
+            <div class="brick-perk">&#10022; Prioritate la înscrieri + 1 weekend de familie / an (10 ani)</div>
+          </div>
+          <div class="brick">
             <div class="brick-amount">25'000 CHF</div>
             <div class="brick-label">Un loc complet de cazare</div>
+            <div class="brick-perk">&#10022; Prioritate la înscrierile în tabere (10 ani)</div>
           </div>
           <div class="brick">
             <div class="brick-amount">10'000 CHF</div>
             <div class="brick-label">Un zid la cameră</div>
+            <div class="brick-perk">&#10022; Acces prioritar (pre-înscriere) la tabere (5 ani)</div>
           </div>
           <div class="brick">
             <div class="brick-amount">5'000 CHF</div>
             <div class="brick-label">Contribuție amenajare capelă</div>
+            <div class="brick-perk">&#10022; Acces timpuriu la înscrieri (3 ani)</div>
           </div>
           <div class="brick">
             <div class="brick-amount">2'500 CHF</div>
@@ -1777,6 +1803,13 @@
             <em>Nu valoarea în sine contează, ci faptul că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;</em>
           </div>
         </div>
+
+        <div class="parish-note">
+          În semn de recunoștință, prioritatea vizează pre-înscrierea copiilor și
+          programarea în calendar, păstrând caracterul caritabil și deschis al
+          centrului pentru toate familiile. Toți donatorii și binefăcătorii vor fi
+          pomeniți la Sfânta Liturghie.
+        </div>
       </div>
 
       <!-- TAB 2: Biserici & Parohii -->
@@ -1786,12 +1819,14 @@
             <div class="parish-tier-info">
               <div class="parish-tier-rank">Un nivel întreg al centrului</div>
               <div class="parish-tier-desc">1 din cele 4 niveluri ale clădirii</div>
+              <div class="parish-tier-perk">&#10022; Prioritate: 1&ndash;2 săptămâni preferențiale / an &middot; timp de 10 ani</div>
             </div>
             <div class="parish-tier-amount">500'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">O jumătate de nivel</div>
+              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială / an (vară / iarnă) &middot; timp de 10 ani</div>
             </div>
             <div class="parish-tier-amount">250'000 CHF</div>
           </div>
@@ -1799,27 +1834,33 @@
             <div class="parish-tier-info">
               <div class="parish-tier-rank">Spațiu comun major</div>
               <div class="parish-tier-desc">Capelă / bucătărie</div>
+              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială o dată la 2 ani (vară, iarnă sau Anul Nou prin rotație) &middot; timp de 10 ani</div>
             </div>
             <div class="parish-tier-amount">100'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">2 locuri complete de cazare</div>
+              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială o dată la 3 ani (sau 1 weekend / an) &middot; timp de 6 ani</div>
             </div>
             <div class="parish-tier-amount">50'000 CHF</div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">Un loc complet de cazare</div>
+              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială o dată la 5 ani (sau 1 weekend la 2 ani) &middot; timp de 5 ani</div>
             </div>
             <div class="parish-tier-amount">25'000 CHF</div>
           </div>
         </div>
 
         <div class="parish-note">
-          Parohiile și comunitățile pot contribui prin colecte speciale, serbări ale
-          copiilor, concerte de colinde sau contribuții eșalonate. Toți ctitorii,
-          binefăcătorii și donatorii vor fi pomeniți la Sfânta Liturghie.
+          În semn de recunoștință, prioritatea vizează programarea în calendar a
+          taberelor parohiale (perioadele de vârf, precum Anul Nou, alocându-se
+          prin rotație), păstrând caracterul caritabil și deschis al centrului
+          pentru toate comunitățile. Parohiile pot contribui prin colecte speciale,
+          serbări, concerte de colinde sau tranșe eșalonate; toți binefăcătorii vor
+          fi pomeniți la Sfânta Liturghie.
         </div>
       </div>
 
@@ -1936,10 +1977,14 @@
           <strong>Für Gemeindemitglieder &amp; Familien:</strong> CHF 100 (ein Ziegelstein),
           CHF 500 (ein Lagerplatz), CHF 1'000 (Gemeinschaftsräume), CHF 2'500 (Küche),
           CHF 5'000 (Kapelle), CHF 10'000 (eine Zimmerwand), CHF 25'000 (ein kompletter
-          Übernachtungsplatz) &mdash; oder jeder beliebige Betrag.<br>
+          Übernachtungsplatz), CHF 75'000 (ein Zimmer) &mdash; oder jeder beliebige Betrag.
+          Als Zeichen des Dankes erhalten Familien ab CHF 5'000 Vorrang bei der
+          Lageranmeldung (für 3&ndash;10 Jahre, je nach Beitrag).<br>
           <strong>Für Kirchgemeinden &amp; Pfarreien:</strong> CHF 25'000 (1 Übernachtungsplatz),
           CHF 50'000 (2 Übernachtungsplätze), CHF 100'000 (Kapelle / Küche), CHF 250'000
-          (eine halbe Etage) oder CHF 500'000 (eine ganze Etage).<br>
+          (eine halbe Etage) oder CHF 500'000 (eine ganze Etage) &mdash; inklusive
+          bevorzugter Terminplanung für Pfarreilager (für 5&ndash;10 Jahre, mit Rotation
+          in Spitzenzeiten wie Neujahr).<br>
           Bitte verwenden Sie die oben angegebenen Bankdaten mit dem Vermerk
           &laquo;Jugendzentrum &mdash; Projekt Wallis&raquo;.
         </p>
