@@ -914,12 +914,15 @@
     }
 
     .brick {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
       background: var(--cream);
       border: 2px solid var(--cream-dark);
       border-radius: 10px;
       padding: 1.15rem 1rem;
       text-align: center;
-      cursor: default;
       transition: border-color 0.2s, transform 0.2s;
     }
 
@@ -940,14 +943,87 @@
       margin-top: 0.25rem;
     }
 
-    .brick-perk {
+    .wa-tier-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      border: none;
+      background: #1E7E45;
+      color: var(--white);
+      font-family: inherit;
       font-size: 0.78rem;
-      color: var(--gold-dark);
-      margin-top: 0.5rem;
-      padding-top: 0.45rem;
-      border-top: 1px dashed var(--gold-light);
-      line-height: 1.4;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .wa-tier-btn:hover {
+      background: #176637;
+      transform: translateY(-1px);
+    }
+
+    .parish-tier-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .parish-tier-right .wa-tier-btn {
+      margin-top: 0;
+    }
+
+    .contact-donate-card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid var(--cream-dark);
+      text-align: center;
+    }
+
+    .contact-donate-card h3 {
+      color: var(--burgundy);
+      margin-bottom: 0.7rem;
+      font-size: 1.2rem;
+    }
+
+    .contact-donate-card p {
+      font-size: 0.94rem;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .contact-donate-card .wa-tier-btn {
+      padding: 0.7rem 1.4rem;
+      font-size: 0.92rem;
+      margin-top: 0;
+    }
+
+    .contact-donate-meta {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+
+    .contact-donate-meta a {
+      color: var(--burgundy);
       font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-donate-meta a:hover {
+      text-decoration: underline;
     }
 
     .brick-featured {
@@ -1246,7 +1322,14 @@
       .parish-tier {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.4rem;
+        gap: 0.6rem;
+      }
+
+      .parish-tier-right {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .spec-row {
@@ -1763,52 +1846,92 @@
       <div class="donate-panel active" id="panel-individual" role="tabpanel" aria-labelledby="tab-individual">
         <div class="brick-grid">
           <div class="brick">
-            <div class="brick-amount">75'000 CHF</div>
-            <div class="brick-label">O cameră</div>
-            <div class="brick-perk">&#10022; Prioritate la înscrieri + 1 weekend de familie / an (10 ani)</div>
+            <div>
+              <div class="brick-amount">75'000 CHF</div>
+              <div class="brick-label">O cameră</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;75'000 CHF (O cameră)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">25'000 CHF</div>
-            <div class="brick-label">Un loc complet de cazare</div>
-            <div class="brick-perk">&#10022; Prioritate la înscrierile în tabere (10 ani)</div>
+            <div>
+              <div class="brick-amount">25'000 CHF</div>
+              <div class="brick-label">Un loc complet de cazare</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;25'000 CHF (Un loc complet de cazare)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">10'000 CHF</div>
-            <div class="brick-label">Un zid la cameră</div>
-            <div class="brick-perk">&#10022; Acces prioritar (pre-înscriere) la tabere (5 ani)</div>
+            <div>
+              <div class="brick-amount">10'000 CHF</div>
+              <div class="brick-label">Un zid la cameră</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;10'000 CHF (Un zid la cameră)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">5'000 CHF</div>
-            <div class="brick-label">Contribuție amenajare capelă</div>
-            <div class="brick-perk">&#10022; Acces timpuriu la înscrieri (3 ani)</div>
+            <div>
+              <div class="brick-amount">5'000 CHF</div>
+              <div class="brick-label">Contribuție amenajare capelă</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;5'000 CHF (Contribuție amenajare capelă)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">2'500 CHF</div>
-            <div class="brick-label">Contribuție amenajare bucătărie</div>
+            <div>
+              <div class="brick-amount">2'500 CHF</div>
+              <div class="brick-label">Contribuție amenajare bucătărie</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;2'500 CHF (Contribuție amenajare bucătărie)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">1'000 CHF</div>
-            <div class="brick-label">Contribuție amenajare spații comune</div>
+            <div>
+              <div class="brick-amount">1'000 CHF</div>
+              <div class="brick-label">Contribuție amenajare spații comune</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;1'000 CHF (Contribuție amenajare spații comune)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">500 CHF</div>
-            <div class="brick-label">Un loc în tabără</div>
+            <div>
+              <div class="brick-amount">500 CHF</div>
+              <div class="brick-label">Un loc în tabără</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;500 CHF (Un loc în tabără)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick">
-            <div class="brick-amount">100 CHF</div>
-            <div class="brick-label">O cărămidă</div>
+            <div>
+              <div class="brick-amount">100 CHF</div>
+              <div class="brick-label">O cărămidă</div>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;100 CHF (O cărămidă)&quot;, false)">
+              Scrie pe WhatsApp
+            </button>
           </div>
           <div class="brick brick-any">
-            <strong>...sau orice sumă, din inimă.</strong>
-            <em>Nu valoarea în sine contează, ci faptul că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;</em>
+            <div>
+              <strong>...sau orice sumă, din inimă.</strong>
+              <em>Nu valoarea în sine contează, ci faptul că putem spune: &laquo;Și eu am pus o cărămidă aici.&raquo;</em>
+            </div>
+            <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp('', false)">
+              Scrie Părintelui Laurențiu pe WhatsApp
+            </button>
           </div>
         </div>
 
         <div class="parish-note">
-          În semn de recunoștință, prioritatea vizează pre-înscrierea copiilor și
-          programarea în calendar, păstrând caracterul caritabil și deschis al
-          centrului pentru toate familiile. Toți donatorii și binefăcătorii vor fi
-          pomeniți la Sfânta Liturghie.
+          Vom reveni în curând cu detalii despre beneficiile și prioritățile
+          incluse pentru fiecare categorie de contribuție. Toți donatorii și
+          binefăcătorii vor fi pomeniți la Sfânta Liturghie.
         </div>
       </div>
 
@@ -1819,85 +1942,84 @@
             <div class="parish-tier-info">
               <div class="parish-tier-rank">Un nivel întreg al centrului</div>
               <div class="parish-tier-desc">1 din cele 4 niveluri ale clădirii</div>
-              <div class="parish-tier-perk">&#10022; Prioritate: 1&ndash;2 săptămâni preferențiale / an &middot; timp de 10 ani</div>
             </div>
-            <div class="parish-tier-amount">500'000 CHF</div>
+            <div class="parish-tier-right">
+              <div class="parish-tier-amount">500'000 CHF</div>
+              <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;500'000 CHF (Un nivel întreg al centrului)&quot;, true)">
+                Scrie pe WhatsApp
+              </button>
+            </div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">O jumătate de nivel</div>
-              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială / an (vară / iarnă) &middot; timp de 10 ani</div>
             </div>
-            <div class="parish-tier-amount">250'000 CHF</div>
+            <div class="parish-tier-right">
+              <div class="parish-tier-amount">250'000 CHF</div>
+              <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;250'000 CHF (O jumătate de nivel)&quot;, true)">
+                Scrie pe WhatsApp
+              </button>
+            </div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">Spațiu comun major</div>
               <div class="parish-tier-desc">Capelă / bucătărie</div>
-              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială o dată la 2 ani (vară, iarnă sau Anul Nou prin rotație) &middot; timp de 10 ani</div>
             </div>
-            <div class="parish-tier-amount">100'000 CHF</div>
+            <div class="parish-tier-right">
+              <div class="parish-tier-amount">100'000 CHF</div>
+              <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;100'000 CHF (Spațiu comun major — capelă / bucătărie)&quot;, true)">
+                Scrie pe WhatsApp
+              </button>
+            </div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">2 locuri complete de cazare</div>
-              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială o dată la 3 ani (sau 1 weekend / an) &middot; timp de 6 ani</div>
             </div>
-            <div class="parish-tier-amount">50'000 CHF</div>
+            <div class="parish-tier-right">
+              <div class="parish-tier-amount">50'000 CHF</div>
+              <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;50'000 CHF (2 locuri complete de cazare)&quot;, true)">
+                Scrie pe WhatsApp
+              </button>
+            </div>
           </div>
           <div class="parish-tier">
             <div class="parish-tier-info">
               <div class="parish-tier-rank">Un loc complet de cazare</div>
-              <div class="parish-tier-perk">&#10022; Prioritate: 1 săptămână preferențială o dată la 5 ani (sau 1 weekend la 2 ani) &middot; timp de 5 ani</div>
             </div>
-            <div class="parish-tier-amount">25'000 CHF</div>
+            <div class="parish-tier-right">
+              <div class="parish-tier-amount">25'000 CHF</div>
+              <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp(&quot;25'000 CHF (Un loc complet de cazare)&quot;, true)">
+                Scrie pe WhatsApp
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="parish-note">
-          În semn de recunoștință, prioritatea vizează programarea în calendar a
-          taberelor parohiale (perioadele de vârf, precum Anul Nou, alocându-se
-          prin rotație), păstrând caracterul caritabil și deschis al centrului
-          pentru toate comunitățile. Parohiile pot contribui prin colecte speciale,
-          serbări, concerte de colinde sau tranșe eșalonate; toți binefăcătorii vor
-          fi pomeniți la Sfânta Liturghie.
+          Vom reveni în curând cu detalii despre beneficiile și perioadele
+          preferențiale incluse pentru fiecare categorie. Parohiile pot contribui
+          prin colecte speciale, serbări, concerte de colinde sau tranșe eșalonate;
+          toți binefăcătorii vor fi pomeniți la Sfânta Liturghie.
         </div>
       </div>
 
-      <div class="bank-details">
-        <h3>Date bancare pentru donații</h3>
-
-        <!-- =====================================================
-             TODO: REPLACE THESE PLACEHOLDERS WITH REAL BANK INFO
-             ===================================================== -->
-        <div class="bank-row">
-          <span class="bank-label">Titular</span>
-          <span class="bank-value">Parohia Sf. Gheorghe Berna</span>
+      <div class="contact-donate-card">
+        <h3>Contact direct pentru donații și detalii</h3>
+        <p>
+          Pentru a vă alătura proiectului sau pentru orice întrebare, scrieți-i
+          direct Părintelui Laurențiu Precup pe WhatsApp (sau alegeți una dintre
+          categoriile de mai sus). Vom reveni în curând cu datele bancare dedicate
+          și cu detaliile complete despre beneficiile incluse.
+        </p>
+        <button type="button" class="wa-tier-btn" onclick="contactPriestWhatsApp('', false)">
+          Scrie pe WhatsApp &mdash; Pr. Laurențiu Precup
+        </button>
+        <div class="contact-donate-meta">
+          Tel: <a href="tel:+41786317648">078 631 76 48</a> &middot;
+          Email: <a href="mailto:laurentiuprecup@yahoo.de">laurentiuprecup@yahoo.de</a>
         </div>
-        <div class="bank-row">
-          <span class="bank-label">IBAN (CHF)</span>
-          <span class="bank-value">CH__ ____ ____ ____ ____ _</span>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">IBAN (EUR)</span>
-          <span class="bank-value">CH__ ____ ____ ____ ____ _</span>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">Banca</span>
-          <span class="bank-value">__________________</span>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">BIC/SWIFT</span>
-          <span class="bank-value">__________</span>
-        </div>
-        <!-- ===================================================== -->
-
-        <div class="bank-note">
-          <strong>Mențiune:</strong> &laquo;Centrul de Tabere &mdash; Proiect Valais&raquo;
-        </div>
-
-        <!-- TODO: Replace with actual QR payment code image -->
-        <div class="qr-placeholder">QR Code<br><small>Înlocuiește cu<br>codul QR real</small></div>
       </div>
     </div>
   </section>
@@ -1977,16 +2099,14 @@
           <strong>Für Gemeindemitglieder &amp; Familien:</strong> CHF 100 (ein Ziegelstein),
           CHF 500 (ein Lagerplatz), CHF 1'000 (Gemeinschaftsräume), CHF 2'500 (Küche),
           CHF 5'000 (Kapelle), CHF 10'000 (eine Zimmerwand), CHF 25'000 (ein kompletter
-          Übernachtungsplatz), CHF 75'000 (ein Zimmer) &mdash; oder jeder beliebige Betrag.
-          Als Zeichen des Dankes erhalten Familien ab CHF 5'000 Vorrang bei der
-          Lageranmeldung (für 3&ndash;10 Jahre, je nach Beitrag).<br>
+          Übernachtungsplatz), CHF 75'000 (ein Zimmer) &mdash; oder jeder beliebige Betrag.<br>
           <strong>Für Kirchgemeinden &amp; Pfarreien:</strong> CHF 25'000 (1 Übernachtungsplatz),
           CHF 50'000 (2 Übernachtungsplätze), CHF 100'000 (Kapelle / Küche), CHF 250'000
-          (eine halbe Etage) oder CHF 500'000 (eine ganze Etage) &mdash; inklusive
-          bevorzugter Terminplanung für Pfarreilager (für 5&ndash;10 Jahre, mit Rotation
-          in Spitzenzeiten wie Neujahr).<br>
-          Bitte verwenden Sie die oben angegebenen Bankdaten mit dem Vermerk
-          &laquo;Jugendzentrum &mdash; Projekt Wallis&raquo;.
+          (eine halbe Etage) oder CHF 500'000 (eine ganze Etage).<br>
+          Weitere Details zu den enthaltenen Vorteilen sowie die Bankverbindung für
+          das Projekt folgen in Kürze. Bei Interesse kontaktieren Sie bitte direkt
+          Pfr. Laurențiu Precup per WhatsApp, Telefon (078 631 76 48) oder E-Mail
+          (laurentiuprecup@yahoo.de).
         </p>
 
         <p>
@@ -2104,6 +2224,21 @@
 
     function openParishTab() {
       switchDonateTab('parish');
+    }
+
+    // --- Direct WhatsApp contact to Pfr. Laurențiu Precup ---
+    const PRIEST_WHATSAPP = '41786317648';
+
+    function contactPriestWhatsApp(packageLabel, isParish) {
+      let msg;
+      if (!packageLabel) {
+        msg = 'Doamne ajută, Părinte Laurențiu! Vă scriu în legătură cu centrul tinerilor din Valais. Sunt interesat să susțin proiectul cu o donație.';
+      } else if (isParish) {
+        msg = 'Doamne ajută, Părinte Laurențiu! Vă scriu din partea parohiei noastre în legătură cu centrul tinerilor din Valais. Suntem interesați să contribuim cu ' + packageLabel + '.';
+      } else {
+        msg = 'Doamne ajută, Părinte Laurențiu! Vă scriu în legătură cu centrul tinerilor din Valais. Sunt interesat să donez ' + packageLabel + '.';
+      }
+      window.open('https://wa.me/' + PRIEST_WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     }
 
     // --- Share helpers ---
